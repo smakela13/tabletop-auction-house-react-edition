@@ -15,12 +15,16 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    // set savedBooks to be an array of data that adheres to the bookSchema
-    savedProducts: [productSchema],
+    email: {
+      type: String,
+      required: true,
+    },
     isGM: {  
         type: Boolean,
         required: true,
     },
+    // set savedProducts to be an array of data that adheres to the bookSchema
+    savedProducts: [productSchema],
   },
   // set this to use virtual below
 //   {
