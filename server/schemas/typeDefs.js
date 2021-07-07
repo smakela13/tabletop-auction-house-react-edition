@@ -1,6 +1,6 @@
-const { gqp } = require ('apollo-server-express');
+const { gql } = require ('apollo-server-express');
 
-const typeDefs = gqp` 
+const typeDefs = gql` 
 
     type: Product {
         _id: ID

@@ -1,0 +1,49 @@
+.app {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.student-list {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  background: lightgreen;
+  padding: 10px;
+}
+
+th,
+td {
+  border: 1px solid grey;
+}
+
+.add-student {
+  margin: 20px 0;
+}
+
+.add-student button,
+.add-student input,
+.add-student select {
+  height: 40px;
+}
+
+.add-major {
+  margin: 20px 0;
+}
+
+.add-major button,
+.add-major input,
+.add-major select {
+  height: 40px;
+}
