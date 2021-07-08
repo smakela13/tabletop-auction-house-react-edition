@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Col } from 'react-bootstrap';
+import { Card} from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 // xs={6} md={2}
 const Product = ({ product }) => {
