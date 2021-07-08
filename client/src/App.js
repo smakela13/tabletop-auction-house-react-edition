@@ -1,25 +1,84 @@
 import React from 'react';
-
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Navigation from './components/Navbar';
 import Store from './pages/store';
 import Product from './components/Product';
-import Navigation from './components/Navbar';
+import Login from './components/Login';
+import Signup from './components/Signup';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem('id_token');
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
-    <Router>
-      <>
-        <Navigation />
-        <Switch>
-          <Route exact path='/' component={Store} />
-          {/* <Route exact path='/Product' component={Store} /> */}
-          <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
-        </Switch>
-      </>
-    </Router>
+    <ApolloProvider client={client}>
+      <Router>
+        <div className="flex-column justify-flex-start min-100-vh">
+          {/* <Header /> */}
+            <Navigation />
+          <div className="container">
+            <Route exact path="/">
+              <Store />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
+            </Route>
+          </div>
+          {/* <Footer /> */}
+        </div>
+      </Router>
+    </ApolloProvider>
   );
-
 }
 
 export default App;
+
+
+// function App() {
+//   return (
+//     <Router>
+//       <>
+//         <Navigation />
+//         <Switch>
+//           <Route exact path='/' component={Store} />
+//           {/* <Route exact path='/Product' component={Store} /> */}
+//           <Route path='/login' component={Login} />
+//           <Route path='/signup' component={Signup} />
+//           <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
+//         </Switch>
+//       </>
+//     </Router>
+//   );
+
+// }
+
+// export default App;
