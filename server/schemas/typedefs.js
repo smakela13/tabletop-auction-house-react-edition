@@ -22,14 +22,14 @@ const typeDefs = gql`
         password: String!
         email: String!
     }
-    
+
     type DM {
         _id: ID
         name: String!
         password: String!
         email: String!
     }
-    input addItemInput {
+    input: addItemInput {
         productName: String!
         price: Int!
         stock: Int!

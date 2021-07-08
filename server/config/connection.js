@@ -1,10 +1,12 @@
-// const mongoose = require('mongoose');
 
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/tabletopauctionhouse', {
-// 	useNewUrlParser: true,
-// 	useUnifiedTopology: true,
-// 	useCreateIndex: true,
-// 	useFindAndModify: false,
-// });
+const mongoose = require('mongoose');
 
-// module.exports = mongoose.connection;
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/tabletopauctionhouse', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
+
+module.exports = mongoose.connection;
+

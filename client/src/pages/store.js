@@ -20,6 +20,12 @@ const products = [
 
 ]
 
+const renderNavigation = () => {
+    return (
+        <Navigation />
+    );
+    
+}
 const renderProducts = () => {
     return (
         products.map((product, i) => {
@@ -33,7 +39,7 @@ const renderProducts = () => {
 const Store = () => {
     return (
         <>
-        {renderNavigation()}
+        {/* {renderNavigation()} */}
         <Container>
             <CardGroup id="product">
                 <Row >
