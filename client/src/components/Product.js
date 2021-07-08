@@ -1,21 +1,17 @@
 import React from 'react';
-import { Card} from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
+import { Card, ListGroup } from 'react-bootstrap';
 
-// xs={6} md={2}
 const Product = ({ product }) => {
     if (product) {
         return (
-            <Col >
-                <Card className="d-flex justify-content-center">
-                    <Card.Body>
-                            <Card.Title>{product.name}</Card.Title>
-							<Card.Text>{product.description}</Card.Text>
-							<Card.Text>{product.price}</Card.Text>
-							<Card.Text>{product.stock}</Card.Text>
-                    </Card.Body>
-                </Card>
-            </Col>
+            // <Card>
+                    <ListGroup horizontal >
+                        <ListGroup.Item className='p-3 col-2'>{product.name}</ListGroup.Item>
+                        <ListGroup.Item className='p-3 col-8'>{product.description}</ListGroup.Item>
+                        <ListGroup.Item className='p-3 col-1'>Price:<br/>{product.price}</ListGroup.Item>
+                        <ListGroup.Item className='p-3 col-1'>Stock:<br />{product.stock}</ListGroup.Item>
+                    </ListGroup> 
+            // </Card>
         );
     }
 

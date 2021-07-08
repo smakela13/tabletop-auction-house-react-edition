@@ -1,7 +1,7 @@
 import Product from '../components/Product';
 import React from 'react';
 import Navigation from '../components/Navbar';
-import { Container, CardGroup, Row, Col } from 'react-bootstrap';
+import { Container, ListGroup, CardGroup, Row } from 'react-bootstrap';
 
 const products = [
     {
@@ -41,11 +41,9 @@ const Store = () => {
         <>
         {/* {renderNavigation()} */}
         <Container>
-            <CardGroup id="product">
-                <Row >
+            <ListGroup id='product'>
                     {renderProducts()}
-                </Row>
-            </CardGroup>
+            </ListGroup>
         </Container>
         </>
     );

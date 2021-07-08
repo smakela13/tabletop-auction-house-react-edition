@@ -35,7 +35,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-function App() {
+export default function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -60,7 +60,6 @@ function App() {
   );
 }
 
-export default App;
 
 
 // function App() {
