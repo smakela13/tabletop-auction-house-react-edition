@@ -11,11 +11,15 @@ const Navigation = () => {
 				bg='dark'
 				variant='dark'
 				className='header'>
-				<Navbar.Brand className='header-nav'>Tabletop Auction House</Navbar.Brand>
+				<Navbar.Brand className='header-nav'>
+					Tabletop Auction House
+				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='responsive-navbar-nav' />
 				<Navbar.Collapse id='responsive-navbar-nav'>
-					<Nav className='mr-auto'>
+					<Nav className='ml-auto'>
 						<Nav.Link href='/'>Home</Nav.Link>
+						<Nav.Link href='/contact-me'>Add Item</Nav.Link>
+						<Nav.Link href='/contact-me'>Contact</Nav.Link>
 						<Nav.Link href='/portfolio'>Log In</Nav.Link>
 						<Nav.Link href='/resume'>Sign Up</Nav.Link>
 					</Nav>
