@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/tabletopauctionhouse', {
@@ -8,3 +9,4 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/tabletopauction
 });
 
 module.exports = mongoose.connection;
+
