@@ -37,12 +37,6 @@ const typeDefs = gql`
         categoryID: [Category] 
     }
     type Mutation {
-
-        login (email: String!, password: String!): Auth
-        addUser(username:String!, email: String!, password: String!): Auth
-        addItem(imput: addItemInput): DM
-        removeItem(productId: String!): User
-
         login (email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         addItem(input: addItemInput): DM
