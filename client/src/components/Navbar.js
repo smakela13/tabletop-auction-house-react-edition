@@ -10,7 +10,7 @@ const Navigation = () => {
 				expand='sm'
 				bg='dark'
 				variant='dark'
-				className='header'>
+				className='header mb-4'>
 				<Navbar.Brand className='header-nav'>
 					Tabletop Auction House
 				</Navbar.Brand>
