@@ -1,6 +1,7 @@
 import Product from '../components/Product';
 import React from 'react';
 import Navbar from '../components/Navbar';
+import { Container, CardGroup, Row, Col } from 'react-bootstrap';
 
 const products = [
     {
@@ -33,13 +34,13 @@ const Store = () => {
     return (
         <>
         {renderNavbar()}
-        <div className="row w-100 p-0 m-0" id="work">
-            <div className="col-md-12 py-2" id="content-text">
-                <div className="row">
-                {renderProducts()}
-                </div>
-            </div>
-        </div>
+        <Container>
+            <CardGroup id="product">
+                <Row >
+                    {renderProducts()}
+                </Row>
+            </CardGroup>
+        </Container>
         </>
     );
 }
