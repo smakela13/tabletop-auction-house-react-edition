@@ -10,7 +10,7 @@ const Navigation = () => {
 				expand='sm'
 				bg='dark'
 				variant='dark'
-				className='header'>
+				className='header mb-4'>
 				<Navbar.Brand className='header-nav'>
 					Tabletop Auction House
 				</Navbar.Brand>
@@ -18,10 +18,10 @@ const Navigation = () => {
 				<Navbar.Collapse id='responsive-navbar-nav'>
 					<Nav className='ml-auto'>
 						<Nav.Link href='/'>Home</Nav.Link>
-						<Nav.Link href='/contact-me'>Add Item</Nav.Link>
-						<Nav.Link href='/contact-me'>Contact</Nav.Link>
-						<Nav.Link href='/portfolio'>Log In</Nav.Link>
-						<Nav.Link href='/resume'>Sign Up</Nav.Link>
+						<Nav.Link href='/additem'>Add Item</Nav.Link>
+						<Nav.Link href='/contact'>Contact</Nav.Link>
+						<Nav.Link href='/login'>Log In</Nav.Link>
+						<Nav.Link href='/signup'>Sign Up</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>

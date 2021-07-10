@@ -1,4 +1,6 @@
+
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/tabletopauctionhouse', {
   useNewUrlParser: true,
@@ -8,3 +10,4 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/tabletopauction
 });
 
 module.exports = mongoose.connection;
+

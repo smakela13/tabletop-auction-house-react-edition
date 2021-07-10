@@ -20,8 +20,8 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { name, password, email, isDM }) => {
-      const user = await User.create({ name, password, email, isDM });
+    addUser: async (parent, { name, password, email, isGM }) => {
+      const user = await User.create({ name, password, email, isGM });
       const token = signToken(user);
 
       return { token, user };
@@ -45,6 +45,32 @@ const resolvers = {
     // removeUser: async (parent, { userId }) => {
     //   return User.findOneAndDelete({ _id: userId });
     // },
+  },
+  addItem: async (parent, { productData }, context) => {
+    if (context.user) {
+      const updatedUser = await User.findByIdAndUpdate(
+        { _id: context.user._id },
+        { $push: { savedProducts: productData } },
+        { new: true, runValidators: true }
+      );
+
+      return updatedUser;
+    }
+
+    throw new AuthenticationError('Please Login First!');
+  },
+  removeItem: async (parent, { _id }, context) => {
+    if (context.user) {
+      const updatedUser = await User.findByIdAndUpdate(
+        { _id: context.user._id },
+        { $pull: { savedProducts: { item: _id } } },
+        { new: true }
+      );
+
+      return updatedUser;
+    }
+
+    throw new AuthenticationError('Please Login First!');
   },
 };
 
