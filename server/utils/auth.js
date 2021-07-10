@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
-
-const secret = '';
+const secret = 'mysecretssshhhhhhh';
 const expiration = '12h';
 
 module.exports = {
@@ -28,8 +27,8 @@ module.exports = {
     // return the request object so it can be passed to the resolver as `context`
     return req;
   },
-  signToken: function ({ name, email, isGM, _id }) {
-    const payload = { name, email, isGM, _id };
+  signToken: function ({ username, email, _id }) {
+    const payload = { username, email, _id };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };

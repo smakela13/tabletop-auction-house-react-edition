@@ -20,14 +20,14 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { name, password, email, isGM }) => {
-      const user = await User.create({ name, password, email, isGM });
+    addUser: async (parent, { username, password, email }) => {
+      const user = await User.create({ username, password, email });
       const token = signToken(user);
 
       return { token, user };
     },
-    login: async (parent, { name, password }) => {
-      const user = await User.findOne({ name });
+    login: async (parent, { username, password }) => {
+      const user = await User.findOne({ username });
 
       if (!user) {
         throw new AuthenticationError('No User with this name found!');
