@@ -8,15 +8,19 @@ const Navigation = () => {
 				collapseOnSelect
 				sticky='top'
 				expand='sm'
-				bg='dark'
 				variant='dark'
-				className='header mb-4'>
-				<Navbar.Brand className='header-nav'>
+				className='header mb-3'
+				style={{ backgroundColor: '#373737' }}>
+				<Navbar.Brand
+					className='header-nav px-3'
+					style={{ fontSize: '43px', fontFamily: 'Roboto' }}>
 					Tabletop Auction House
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='responsive-navbar-nav' />
 				<Navbar.Collapse id='responsive-navbar-nav'>
-					<Nav className='ml-auto'>
+					<Nav
+						className='ms-auto px-2'
+						style={{ fontSize: '20px', fontFamily: 'Roboto' }}>
 						<Nav.Link href='/'>Home</Nav.Link>
 						<Nav.Link href='/additem'>Add Item</Nav.Link>
 						<Nav.Link href='/contact'>Contact</Nav.Link>
