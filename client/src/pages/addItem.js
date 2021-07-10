@@ -76,7 +76,7 @@ return (
           />
 \        </Form.Group>
         <Button
-          disabled={!(formState.email && formState.password)}
+          disabled={!(formState.itemName && formState.description && formState.price && formState.quantity)}
           type='submit'
           variant='success'>
           Submit
