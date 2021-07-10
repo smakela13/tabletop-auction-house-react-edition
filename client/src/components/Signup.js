@@ -7,14 +7,14 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const Signup = () => {
-  const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+  const [userFormData, setUserFormData] = useState({ username: '', email: '', password: '', isGM: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setFormState({ ...formState, [name]: value });
+    setUserFormData({ ...userFormData, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
@@ -28,17 +28,18 @@ const Signup = () => {
     }
 
     try {
-      const { data } = await addUser({
-        variables: { ...formState },
-      });
+      const { data } = await addUser({ variables: userFormData });
 
+      if (error) {
+        console.log(error.message);
+      }
       Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
       setShowAlert(true);
     }
 
-    setFormState({
+    setUserFormData({
       username: '',
       email: '',
       password: '',
@@ -61,7 +62,7 @@ const Signup = () => {
             placeholder='Your username'
             name='username'
             onChange={handleInputChange}
-            value={formState.username}
+            value={userFormData.username}
             required
           />
           <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
@@ -74,7 +75,7 @@ const Signup = () => {
             placeholder='Your email address'
             name='email'
             onChange={handleInputChange}
-            value={formState.email}
+            value={userFormData.email}
             required
           />
           <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
@@ -87,13 +88,13 @@ const Signup = () => {
             placeholder='Your password'
             name='password'
             onChange={handleInputChange}
-            value={formState.password}
+            value={userFormData.password}
             required
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
         <Button
-          disabled={!(formState.username && formState.email && formState.password)}
+          disabled={!(userFormData.username && userFormData.email && userFormData.password)}
           type='submit'
           variant='success'>
           Submit
