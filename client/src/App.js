@@ -11,6 +11,7 @@ import Navigation from './components/Navbar';
 import Store from './pages/store';
 import Product from './components/Product';
 import Additem from './pages/additem';
+import Contact from './pages/additem';
 import Login from './components/Login';
 import Signup from './components/Signup';
 
@@ -48,6 +49,9 @@ export default function App() {
               <Store />
             </Route>
             <Route exact path="/additem">
+              <Additem />
+            </Route>
+            <Route exact path="/contact">
               <Additem />
             </Route>
             <Route exact path="/login">
