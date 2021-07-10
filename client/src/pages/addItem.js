@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-const addItem = () => {
+const AddItem = () => {
     const [formState, setFormState] = useState({ itemName: '', description: '', price: '', quantity: '' });
   
     // update state based on form input changes
@@ -85,4 +85,4 @@ return (
   );
 };
 
-export default addItem;
+export default AddItem;
