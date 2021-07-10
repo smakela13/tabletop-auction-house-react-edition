@@ -11,7 +11,7 @@ import Navigation from './components/Navbar';
 import Store from './pages/store';
 import Product from './components/Product';
 import Additem from './pages/additem';
-import Contact from './pages/additem';
+import Contact from './pages/contact';
 import Login from './components/Login';
 import Signup from './components/Signup';
 
@@ -52,7 +52,7 @@ export default function App() {
               <Additem />
             </Route>
             <Route exact path="/contact">
-              <Additem />
+              <Contact />
             </Route>
             <Route exact path="/login">
               <Login />
