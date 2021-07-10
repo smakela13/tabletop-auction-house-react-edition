@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navigation from './components/Navbar';
 import Store from './pages/store';
 import Product from './components/Product';
+import Additem from './pages/additem';
 import Login from './components/Login';
 import Signup from './components/Signup';
 
@@ -45,6 +46,9 @@ export default function App() {
           <div className="container">
             <Route exact path="/">
               <Store />
+            </Route>
+            <Route exact path="/additem">
+              <Additem />
             </Route>
             <Route exact path="/login">
               <Login />
