@@ -21,6 +21,8 @@ const typeDefs = gql`
         name: String!
         password: String!
         email: String!
+        productCount: Int
+        
     }
 
     type Auth {
@@ -44,7 +46,7 @@ const typeDefs = gql`
     type Mutation {
         login (email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addItem(input: addItemInput): GM
+        addItem(productData: addItemInput!): GM
         removeItem(productId: String!): User
     }
     type Query {

@@ -1,17 +1,21 @@
 // see SignupForm.js for comments
 import React, { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
+
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+
 import Auth from '../utils/auth';
-const LoginForm = () => {
-  const [formState, setFormState] = useState({ itemName: '', description: '', price: '', quantity: '' });
+
+const Login = () => {
+  const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [login, { error, data }] = useMutation(LOGIN_USER);
 
-  // update state based on form input changes
-  const handleChange = (event) => {
+  const [loginUser, { error }] = useMutation(LOGIN_USER);
+
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
 
     setFormState({
@@ -30,13 +34,16 @@ const LoginForm = () => {
       event.stopPropagation();
     }
     try {
-      const { data } = await login({
-        variables: { ...formState },
-      });
+      const { data } = await loginUser({ variables: { ...userFormData }});
 
       Auth.login(data.login.token);
-    } catch (e) {
-      console.error(e);
+
+      if (error) {
+        console.log(error.message);
+      }
+    } catch (err) {
+      console.error(err);
+      setShowAlert(true);
     }
 
     // clear form values
@@ -88,4 +95,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default Login;
