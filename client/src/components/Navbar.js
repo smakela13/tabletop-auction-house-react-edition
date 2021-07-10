@@ -11,7 +11,7 @@ const Navigation = () => {
 				bg='dark'
 				variant='dark'
 				className='header mb-4'>
-				<Navbar.Brand className='header-nav'>
+				<Navbar.Brand className='header-nav px-3'>
 					Tabletop Auction House
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='responsive-navbar-nav' />

@@ -23,13 +23,18 @@ const typeDefs = gql`
         email: String!
     }
 
-    type DM {
+    type Auth {
+        token: ID
+        user: User
+      }
+
+    type GM {
         _id: ID
         name: String!
         password: String!
         email: String!
     }
-    input: addItemInput {
+    input addItemInput {
         productName: String!
         price: Int!
         stock: Int!
@@ -39,9 +44,16 @@ const typeDefs = gql`
     type Mutation {
         login (email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addItem(input: addItemInput): DM
+        addItem(input: addItemInput): GM
         removeItem(productId: String!): User
     }
+    type Query {
+        products(productName: String): [Product]
+        product(_id: ID!): Product
+        users: [User]
+        user: User
+        me: User
+      }
 `;
 
 module.exports = typeDefs; 
