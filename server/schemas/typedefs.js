@@ -25,18 +25,27 @@ const typeDefs = gql`
         
     }
 
-    type DM {
+    type Auth {
+        token: ID
+        user: User
+      }
+
+      type Query {
+        me: User
+        users: [User]
+        user(_id: String, username: String): User
+    }
+    type GM {
         _id: ID
         name: String!
         password: String!
         email: String!
     }
-    input: addItemInput {
+    input addItemInput {
         productName: String!
         price: Int!
         stock: Int!
         description: String 
-        categoryID: [Category] 
     }
     type Mutation {
         login (email: String!, password: String!): Auth
