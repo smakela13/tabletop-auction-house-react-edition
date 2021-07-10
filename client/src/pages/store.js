@@ -1,7 +1,6 @@
 import Product from '../components/Product';
 import React from 'react';
-import Navigation from '../components/Navbar';
-import { Container, ListGroup, CardGroup, Row } from 'react-bootstrap';
+import { Container, ListGroup } from 'react-bootstrap';
 
 const products = [
     {
