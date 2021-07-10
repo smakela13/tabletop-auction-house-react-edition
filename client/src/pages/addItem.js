@@ -15,10 +15,8 @@ const addItem = () => {
     };
   
     // submit form
-    const handleChange = async (event) => {
+    const handleFormSubmit = async (event) => {
       event.preventDefault();
-      console.log(formState);
-  
       // clear form values
       setFormState({
         itemName: '',
@@ -78,7 +76,8 @@ return (
         <Button
           disabled={!(formState.itemName && formState.description && formState.price && formState.quantity)}
           type='submit'
-          variant='success'>
+          variant='success'
+          onClick={handleFormSubmit}>
           Submit
         </Button>
       </Form>
