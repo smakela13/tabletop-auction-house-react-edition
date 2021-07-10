@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container, ListGroup, CardGroup, Row } from 'react-bootstrap';
 
 const Contact = () => {
     return (
