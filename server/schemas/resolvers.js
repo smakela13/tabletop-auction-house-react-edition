@@ -56,11 +56,11 @@ const resolvers = {
 
       throw new AuthenticationError('Please Login First!');
     },
-    removeItem: async (parent, { _id }, context) => {
+    removeItem: async (parent, { productId }, context) => {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedProducts: { item: _id } } },
+          { $pull: { savedProducts: { item: productId } } },
           { new: true }
         );
 
