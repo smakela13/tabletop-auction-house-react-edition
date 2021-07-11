@@ -5,12 +5,21 @@ const Contact = () => {
     function sendEmail(event) {
         event.preventDefault();
     
-        emailjs.sendForm(, , event.target, )
-        .then((result) => {
-        console.log(result.text);
-        }, (error) => {
-        console.log(error.text);
-        });
+        emailjs
+				.sendForm(
+					process.env.SERVICE_ID,
+					process.env.TEMPLATE_ID,
+                    event.target,
+                    process.env.USER_ID
+				)
+				.then(
+					(result) => {
+						console.log(result.text);
+					},
+					(error) => {
+						console.log(error.text);
+					}
+				);
     }
 
     return (
