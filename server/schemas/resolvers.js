@@ -26,8 +26,8 @@ const resolvers = {
 
       return { token, user };
     },
-    login: async (parent, { username, password }) => {
-      const user = await User.findOne({ username });
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
 
       if (!user) {
         throw new AuthenticationError('No User with this name found!');
@@ -56,11 +56,11 @@ const resolvers = {
 
       throw new AuthenticationError('Please Login First!');
     },
-    removeItem: async (parent, { _id }, context) => {
+    removeItem: async (parent, { productId }, context) => {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedProducts: { item: _id } } },
+          { $pull: { savedProducts: { item: productId } } },
           { new: true }
         );
 
