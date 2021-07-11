@@ -1,9 +1,12 @@
 import React from 'react';
 import emailjs from 'emailjs-com';
+require('dotenv').config();
 
 const Contact = () => {
     function sendEmail(event) {
         event.preventDefault();
+
+        const contactForm = document.querySelector('#contact-form');
     
         emailjs
 				.sendForm(
@@ -13,8 +16,9 @@ const Contact = () => {
                     process.env.USER_ID
 				)
 				.then(
-					(result) => {
-						console.log(result.text);
+                    (result) => {
+                        contactForm.reset();
+                        console.log(result.text);
 					},
 					(error) => {
 						console.log(error.text);
