@@ -2,9 +2,7 @@ import React from 'react';
 import { Navbar, Nav, Image } from 'react-bootstrap';
 import Auth from '../utils/auth';
 
-const Navigation = (props) => {
-	const isLoggedIn = props.isLoggedIn;
-
+const Navigation = () => {
 	return (
 		<>
 			<Image src='TabletopAuctionHouseNew.jpg' style={{objectFit: 'cover'}} fluid />
