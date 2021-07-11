@@ -1,6 +1,7 @@
 import React from 'react';
-import emailjs from 'emailjs-com';
-require('dotenv').config();
+import emailjs, {init} from 'emailjs-com';
+
+init(`${process.env.REACT_APP_USER_ID}`);
 
 const Contact = () => {
     function sendEmail(event) {
@@ -9,21 +10,20 @@ const Contact = () => {
         const contactForm = document.querySelector('#contact-form');
     
         emailjs
-				.sendForm(
-					process.env.SERVICE_ID,
-					process.env.TEMPLATE_ID,
-                    event.target,
-                    process.env.USER_ID
-				)
-				.then(
-                    (result) => {
-                        contactForm.reset();
-                        console.log(result.text);
-					},
-					(error) => {
-						console.log(error.text);
-					}
-				);
+            .sendForm(
+                `${process.env.REACT_APP_SERVICE_ID}`,
+                `${process.env.REACT_APP_TEMPLATE_ID}`,
+                event.target
+            )
+            .then(
+                (result) => {
+                    contactForm.reset();
+                    console.log(result.text);
+                },
+                (error) => {
+                    console.log(error.text);
+                }
+            );
     }
 
     return (
