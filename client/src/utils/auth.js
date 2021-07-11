@@ -30,6 +30,7 @@ class AuthService {
     localStorage.removeItem('id_token');
     // this will reload the page and reset the state of the application
     window.location.reload();
+    console.log('logging out')
   }
 }
 
