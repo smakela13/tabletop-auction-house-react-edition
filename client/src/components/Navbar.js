@@ -1,7 +1,10 @@
 import React from 'react';
 import { Navbar, Nav, Image } from 'react-bootstrap';
+import Auth from '../utils/auth';
 
-const Navigation = () => {
+const Navigation = (props) => {
+	const isLoggedIn = props.isLoggedIn;
+
 	return (
 		<>
 			<Image src='TabletopAuctionHouseNew.jpg' style={{objectFit: 'cover'}} fluid />
@@ -27,6 +30,7 @@ const Navigation = () => {
 						<Nav.Link href='/contact'>Contact</Nav.Link>
 						<Nav.Link href='/login'>Log In</Nav.Link>
 						<Nav.Link href='/signup'>Sign Up</Nav.Link>
+						<Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
