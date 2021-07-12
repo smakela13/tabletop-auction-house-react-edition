@@ -33,6 +33,7 @@ export const ADD_ITEM = gql`
   
   }
 `;
+
 export const REMOVE_ITEM = gql`
   mutation removeItem($productId: String!) {
     removeItem(productId: $productID)

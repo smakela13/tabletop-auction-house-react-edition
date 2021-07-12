@@ -11,7 +11,7 @@ import Navigation from './components/Navbar';
 import Store from './pages/store';
 import Product from './components/Product';
 import Additem from './pages/addItem';
-import Contact from './pages/contact';
+import Contact from './components/Contact';
 import Login from './components/Login';
 import Signup from './components/Signup';
 
