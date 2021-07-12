@@ -33,6 +33,14 @@ export const ADD_ITEM = gql`
   
   }
 `;
-export const Remove_Item = gql`
-  mutation removeItem()
+export const REMOVE_ITEM = gql`
+  mutation removeItem($productId: String!) {
+    removeItem(productId: $productID)
+      savedProducts {
+        productName
+        price
+        stock
+        description
+      }
+  }
 `;

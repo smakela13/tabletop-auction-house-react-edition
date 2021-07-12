@@ -1,30 +1,70 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useMutation } from '@apollo/client';
+import { ADD_ITEM } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const AddItem = () => {
   const [formState, setFormState] = useState({ itemName: '', description: '', price: '', quantity: '' });
+  const [addInput, setAddInput] = useState('');
+  const [addedProductIds, setAddedProductIds ] = useState(getAddedProductIds());
+  const [addItem] = useMutation(ADD_ITEM);
+
+  useEffect(() => {
+    return () => addItemIds(addItemIds);
+  });
 
   // update state based on form input changes
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
-  // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+
+    if (!addInput) {
+      return false;
+    }
+
+    try {
+      const response = await addItem(addInput);
+
+      if (!response.ok) {
+        throw new Error('something went wrong!');
+      }
+
+      const { items } = await response.json();
     // clear form values
-    setFormState({
+    const procductData = items.map(([product]) => ({
       itemName: '',
       description: '',
       price: '',
       quantity: '',
     });
+    setaddedItem(productData);
+    setAddInput('');
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+  const handleAddItem = async (productId) => {
+    // find the book in `searchedBooks` state by the matching id
+    const productToSave = addedProducts.find((product) => product.productId === productId);
+
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      await addItem({variables: ProductToSave});
+
+      setAddItemIds([...addedProductIds, productToSave.productId]);
+
+    } catch (err) {
+      console.error(err);
+    }
   };
+
   return (
     <>
       <Form>
