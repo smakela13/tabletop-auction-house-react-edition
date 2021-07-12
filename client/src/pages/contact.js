@@ -1,7 +1,8 @@
 import React from 'react';
 import emailjs, {init} from 'emailjs-com';
+require('dotenv').config();
 
-init(`${process.env.REACT_APP_USER_ID}`);
+const userID = `${process.env.USER_ID}`;
 
 const Contact = () => {
     function sendEmail(event) {
@@ -11,9 +12,10 @@ const Contact = () => {
     
         emailjs
             .sendForm(
-                `${process.env.REACT_APP_SERVICE_ID}`,
-                `${process.env.REACT_APP_TEMPLATE_ID}`,
-                event.target
+                `${process.env.SERVICE_ID}`,
+                `${process.env.TEMPLATE_ID}`,
+                event.target,
+                userID
             )
             .then(
                 (result) => {
