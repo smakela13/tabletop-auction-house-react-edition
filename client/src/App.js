@@ -45,7 +45,7 @@ export default function App() {
           {/* <Header /> */}
             <Navigation />
           <div className="container">
-            <Route exact path="/">
+            <Route exact path="/" component={Product}>
               <Store />
             </Route>
             <Route exact path="/additem">
