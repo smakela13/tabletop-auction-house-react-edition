@@ -6,7 +6,7 @@ const productSchema = require('./Product');
 
 const userSchema = new Schema(
   {
-    name: {
+    username: {
       type: String,
       required: true,
       unique: true,
@@ -18,26 +18,25 @@ const userSchema = new Schema(
     email: {
       type: String,
       required: true,
+      unique: true,
+      match: [/.+@.+\..+/, 'Must use a valid email address'],
     },
-    isGM: {  
-        type: Boolean,
-        required: true,
-    },
+    
     // set savedProducts to be an array of data that adheres to the bookSchema
     savedProducts: [productSchema],
   },
   // set this to use virtual below
-//   {
-//     toJSON: {
-//       virtuals: true,
-//     },
-//   }
+  {
+    toJSON: {
+      virtuals: true,
+    },
+  }
 );
 
 // hash user password
 userSchema.pre('save', async function (next) {
   if (this.isNew || this.isModified('password')) {
-    const saltRounds = 10;
+    const saltRounds = 6;
     this.password = await bcrypt.hash(this.password, saltRounds);
   }
 

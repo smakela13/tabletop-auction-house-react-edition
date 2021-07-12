@@ -20,14 +20,14 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { name, password, email, isGM }) => {
-      const user = await User.create({ name, password, email, isGM });
+    addUser: async (parent, { username, password, email }) => {
+      const user = await User.create({ username, password, email });
       const token = signToken(user);
 
       return { token, user };
     },
-    login: async (parent, { name, password }) => {
-      const user = await User.findOne({ name });
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
 
       if (!user) {
         throw new AuthenticationError('No User with this name found!');
@@ -42,36 +42,37 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    // removeUser: async (parent, { userId }) => {
-    //   return User.findOneAndDelete({ _id: userId });
-    // },
-  },
-  addItem: async (parent, { productData }, context) => {
-    if (context.user) {
-      const updatedUser = await User.findByIdAndUpdate(
-        { _id: context.user._id },
-        { $push: { savedProducts: productData } },
-        { new: true, runValidators: true }
-      );
 
-      return updatedUser;
-    }
+    addItem: async (parent, { productData }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { savedProducts: productData } },
+          { new: true, runValidators: true }
+        );
 
-    throw new AuthenticationError('Please Login First!');
-  },
-  removeItem: async (parent, { _id }, context) => {
-    if (context.user) {
-      const updatedUser = await User.findByIdAndUpdate(
-        { _id: context.user._id },
-        { $pull: { savedProducts: { item: _id } } },
-        { new: true }
-      );
+        return updatedUser;
+      }
 
-      return updatedUser;
-    }
+      throw new AuthenticationError('Please Login First!');
+    },
+    removeItem: async (parent, { productId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $pull: { savedProducts: { item: productId } } },
+          { new: true }
+        );
 
-    throw new AuthenticationError('Please Login First!');
-  },
+        return updatedUser;
+      }
+
+      throw new AuthenticationError('Please Login First!');
+    },
+  }
 };
 
-module.exports = resolvers;
+  module.exports = resolvers;
+ // removeUser: async (parent, { userId }) => {
+    //   return User.findOneAndDelete({ _id: userId });
+    // },
