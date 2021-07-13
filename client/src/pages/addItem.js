@@ -31,13 +31,13 @@ const AddItem = () => {
 
       const { items } = await response.json();
     // clear form values
-    const procductData = items.map(([product]) => ({
+    const productData = items.map(([product]) => ({
       itemName: '',
       description: '',
       price: '',
       quantity: '',
-    });
-    setaddedItem(productData);
+    })
+    setAddedItem(productData);
     setAddInput('');
   } catch (err) {
     console.error(err);
@@ -85,7 +85,7 @@ const AddItem = () => {
             type='textarea'
             name='description'
             onChange={handleChange}
-            value={formState.descritpion}
+            value={formState.description}
             required
           />
         </Form.Group>

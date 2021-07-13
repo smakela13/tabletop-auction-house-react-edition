@@ -1,5 +1,5 @@
 import React from 'react';
-import emailjs, {init} from 'emailjs-com';
+import emailjs from 'emailjs-com';
 require('dotenv').config();
 
 const userID = `${process.env.USER_ID}`;

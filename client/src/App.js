@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navigation from './components/Navbar';
 import Store from './pages/store';
 import Product from './components/Product';
-import Additem from './pages/addItem';
+import AddItem from './pages/addItem';
 import Contact from './components/Contact';
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -41,15 +41,15 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+        <div className="impDiv">
           {/* <Header /> */}
             <Navigation />
           <div className="container">
             <Route exact path="/" component={Product}>
               <Store />
             </Route>
-            <Route exact path="/additem">
-              <Additem />
+            <Route exact path="/addItem">
+              <AddItem />
             </Route>
             <Route exact path="/contact">
               <Contact />
