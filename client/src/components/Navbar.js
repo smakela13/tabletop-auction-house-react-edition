@@ -24,9 +24,7 @@ const Navigation = () => {
 				<Navbar.Brand
 					className='header-nav px-3'
 					style={{ fontSize: '35px', fontFamily: 'Roboto' }}>
-					Welcome{loggedStatus && `,{' '}`}
-					{loggedStatus && <span onClick={() => document.location.replace('/profile')}>
-						{Auth.getProfile().data.username}
+					Welcome{loggedStatus && <span onClick={() => document.location.replace('/profile')}>,	{Auth.getProfile().data.username}
 					</span>}
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='responsive-navbar-nav' />
