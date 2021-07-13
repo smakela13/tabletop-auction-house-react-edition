@@ -14,6 +14,7 @@ import AddItem from './pages/addItem';
 import Contact from './components/Contact';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Profile from './pages/profile'
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -44,11 +45,14 @@ export default function App() {
         <div className="impDiv">
           {/* <Header /> */}
             <Navigation />
+            <Route exact path="/profile">
+              <Profile />
+            </Route>
             <Route exact path="/" component={Product}>
               <Store />
             </Route>
             <Route exact path="/addItem">
-              {/* <AddItem /> */}
+              <AddItem />
             </Route>
             <Route exact path="/contact">
               <Contact />

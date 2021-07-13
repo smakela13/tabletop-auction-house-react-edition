@@ -22,15 +22,22 @@ const Navigation = () => {
 				className='header mb-5'
 				style={{ backgroundColor: '#373737' }}>
 				<Navbar.Brand
-						className='header-nav px-3'
-						style={{ fontSize: '35px', fontFamily: 'Roboto' }}>
-						Welcome, <span onClick={() => document.location.replace(`/${Auth.getProfile().data.username}`)}>{Auth.getProfile().data.username}</span>
+					className='header-nav px-3'
+					style={{ fontSize: '35px', fontFamily: 'Roboto' }}>
+					Welcome,{' '}
+					<span onClick={() => document.location.replace('/profile')}>
+						{Auth.getProfile().data.username}
+					</span>
 				</Navbar.Brand>
 				<Navbar.Toggle aria-controls='responsive-navbar-nav' />
 				<Navbar.Collapse id='responsive-navbar-nav'>
 					<Nav
 						className='ms-auto px-2 w-100'
-						style={{ fontSize: '20px', fontFamily: 'Roboto', color: 'white' }}>
+						style={{
+							fontSize: '20px',
+							fontFamily: 'Roboto',
+							color: 'white',
+						}}>
 						<Nav.Link href='/'>Home</Nav.Link>
 						<Nav.Link href='/addItem'>Add Item</Nav.Link>
 						<Nav.Link href='/contact'>Contact</Nav.Link>
@@ -39,7 +46,7 @@ const Navigation = () => {
 						) : (
 							<Nav.Link href='/signup'>Sign Up</Nav.Link>
 						)}
-						{!loggedStatus &&	<Nav.Link href='/login'>Log In</Nav.Link>}
+						{!loggedStatus && <Nav.Link href='/login'>Log In</Nav.Link>}
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
