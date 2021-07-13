@@ -44,12 +44,11 @@ export default function App() {
         <div className="impDiv">
           {/* <Header /> */}
             <Navigation />
-          <div className="container">
             <Route exact path="/" component={Product}>
               <Store />
             </Route>
             <Route exact path="/addItem">
-              <AddItem />
+              {/* <AddItem /> */}
             </Route>
             <Route exact path="/contact">
               <Contact />
@@ -62,7 +61,6 @@ export default function App() {
             </Route>
           </div>
           {/* <Footer /> */}
-        </div>
       </Router>
     </ApolloProvider>
   );

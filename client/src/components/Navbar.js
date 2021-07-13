@@ -18,17 +18,17 @@ const Navigation = () => {
 					sticky='top'
 					expand='sm'
 					variant='dark'
-					className='header mb-3'
+					className='header mb-5'
 					style={{ backgroundColor: '#373737' }}>
 					<Navbar.Brand
-						className='header-nav px-3'
+						className='header-nav px-5'
 						style={{ fontSize: '35px', fontFamily: 'Roboto' }}>
 						Welcome
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls='responsive-navbar-nav' />
 					<Navbar.Collapse id='responsive-navbar-nav'>
 						<Nav
-							className='ms-auto px-2'
+							className='ms-auto px-2 w-100'
 							style={{ fontSize: '20px', fontFamily: 'Roboto' }}>
 							<Nav.Link href='/'>Home</Nav.Link>
 							<Nav.Link href='/addItem'>Add Item</Nav.Link>
@@ -44,7 +44,11 @@ const Navigation = () => {
 	if (Auth.loggedIn()) {
 		return (
 			<>
-				<Image src='TabletopAuctionHouseNew.jpg' style={{objectFit: 'cover'}} fluid />
+				<Image
+					src='TabletopAuctionHouseNew.jpg'
+					style={{ objectFit: 'cover' }}
+					fluid
+				/>
 				<Navbar
 					collapseOnSelect
 					sticky='top'
@@ -62,7 +66,11 @@ const Navigation = () => {
 					<Navbar.Collapse id='responsive-navbar-nav'>
 						<Nav
 							className='ms-auto px-2'
-							style={{ fontSize: '20px', fontFamily: 'Roboto', color: 'white' }}>
+							style={{
+								fontSize: '20px',
+								fontFamily: 'Roboto',
+								color: 'white',
+							}}>
 							<Nav.Link href='/'>Home</Nav.Link>
 							<Nav.Link href='/addItem'>Add Item</Nav.Link>
 							<Nav.Link href='/contact'>Contact</Nav.Link>
