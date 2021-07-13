@@ -7,11 +7,11 @@ import Auth from '../utils/auth';
 const AddItem = () => {
   const [formState, setFormState] = useState({ itemName: '', description: '', price: '', quantity: '' });
   const [addInput, setAddInput] = useState('');
-  const [addedProductIds, setAddedProductIds ] = useState(getAddedProductIds());
-  const [addItem] = useMutation(ADD_ITEM);
+  const [addedProductIds, setAddedProductIds] = useState(getAddedProductIds());
+  const [addProduct] = useMutation(ADD_ITEM);
 
   useEffect(() => {
-    return () => addItemIds(addItemIds);
+    return () => addProductIds(addProductIds);
   });
 
   // update state based on form input changes
@@ -23,26 +23,27 @@ const AddItem = () => {
     }
 
     try {
-      const response = await addItem(addInput);
+      const response = await addProduct(addInput);
 
       if (!response.ok) {
         throw new Error('something went wrong!');
       }
 
-      const { items } = await response.json();
-    // clear form values
-    const procductData = items.map(([product]) => ({
-      itemName: '',
-      description: '',
-      price: '',
-      quantity: '',
-    });
-    setaddedItem(productData);
-    setAddInput('');
-  } catch (err) {
-    console.error(err);
-  }
-};
+      const { products } = await response.json();
+      // clear form values
+      const productData = products.map(([product]) => ({
+        productName: '',
+        description: '',
+        price: '',
+        quantity: '',
+      })
+      );
+      setAddedProduct(productData);
+      setAddInput('');
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const handleAddItem = async (productId) => {
     // find the book in `searchedBooks` state by the matching id
@@ -56,9 +57,9 @@ const AddItem = () => {
     }
 
     try {
-      await addItem({variables: ProductToSave});
+      await addProduct({ variables: ProductToSave });
 
-      setAddItemIds([...addedProductIds, productToSave.productId]);
+      setAddedProductIds([...addedProductIds, productToSave.productId]);
 
     } catch (err) {
       console.error(err);
@@ -69,12 +70,12 @@ const AddItem = () => {
     <>
       <Form>
         <Form.Group>
-          <Form.Label htmlFor='itemName'>Item Name</Form.Label>
+          <Form.Label htmlFor='productName'>Product Name</Form.Label>
           <Form.Control
             type='text'
-            name='itemName'
-            onChange={handleChange}
-            value={formState.itemName}
+            name='productName'
+            onChange={handleAddItem}
+            value={formState.productName}
             required
           />
         </Form.Group>
@@ -84,7 +85,7 @@ const AddItem = () => {
           <Form.Control
             type='textarea'
             name='description'
-            onChange={handleChange}
+            onChange={handleAddItem}
             value={formState.descritpion}
             required
           />
@@ -94,7 +95,7 @@ const AddItem = () => {
           <Form.Control
             type='number'
             name='price'
-            onChange={handleChange}
+            onChange={handleAddItem}
             value={formState.price}
             required
           />
@@ -104,16 +105,16 @@ const AddItem = () => {
           <Form.Control
             type='number'
             name='quantity'
-            onChange={handleChange}
+            onChange={handleAddItem}
             value={formState.quantity}
             required
           />
         </Form.Group>
         <Button
-          disabled={!(formState.itemName && formState.description && formState.price && formState.quantity)}
+          disabled={!(formState.productName && formState.description && formState.price && formState.quantity)}
           type='submit'
           variant='success'
-          onClick={handleFormSubmit}>
+          onClick={ handleFormSubmit, handleAddItem }>
           Submit
         </Button>
       </Form>
