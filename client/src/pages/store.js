@@ -1,6 +1,6 @@
 import Product from '../components/Product';
 import React from 'react';
-import { Container, ListGroup } from 'react-bootstrap';
+import { Table, ListGroup } from 'react-bootstrap';
 
 const products = [
     {
@@ -31,11 +31,11 @@ const renderProducts = () => {
 const Store = () => {
     return (
         <>
-        <Container>
+        <Table striped bordered hover responsive>
             <ListGroup id='product' onClick={(target) => document.location.replace(`/${target.nativeEvent.path[0].attributes[0].nodeValue}`)}>
                     {renderProducts()}
             </ListGroup>
-        </Container>
+        </Table>
         </>
     );
 }

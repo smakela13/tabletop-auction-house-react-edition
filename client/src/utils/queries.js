@@ -8,7 +8,6 @@ query {
         email
         }
     }
-}
 `;
 
 export const ADD_ITEM = gql`

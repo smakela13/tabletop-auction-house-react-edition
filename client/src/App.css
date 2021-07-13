@@ -37,7 +37,21 @@
   }
 }
 
-.container {
-    width: 100%;
-    white-space: nowrap;
+.impDiv{
+  display: flex;
+  flex-direction: column;
+  background: #4b4b4b;
+  height: 100vh;
+  font-family: 'Roboto', Verdana, Tahoma, sans-serif;
+  color: #fff;
+}
+
+.header {
+  padding: 20px;
+  background-color: var(--raisinBlack);
+  background-image: linear-gradient(315deg, #494949 10%, var(--raisinBlack) 54%);
+  margin-bottom: 1em;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
