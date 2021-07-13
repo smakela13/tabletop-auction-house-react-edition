@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_ITEM } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { getAddedProductIds, addProductIds } from '../utils/localStorage'
 
 const AddItem = () => {
   const [formState, setFormState] = useState({ itemName: '', description: '', price: '', quantity: '' });
@@ -38,8 +39,8 @@ const AddItem = () => {
         quantity: '',
       })
       );
-      setAddedProduct(productData);
-      setAddInput('');
+      addProduct(productData);
+      setAddInput([]);
     } catch (err) {
       console.error(err);
     }
@@ -47,7 +48,7 @@ const AddItem = () => {
 
   const handleAddItem = async (productId) => {
     // find the book in `searchedBooks` state by the matching id
-    const productToSave = addedProducts.find((product) => product.productId === productId);
+    const productToSave = addProduct.find((product) => product.productId === productId);
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -57,7 +58,7 @@ const AddItem = () => {
     }
 
     try {
-      await addProduct({ variables: ProductToSave });
+      await addProduct({ variables: productToSave });
 
       setAddedProductIds([...addedProductIds, productToSave.productId]);
 
@@ -74,8 +75,8 @@ const AddItem = () => {
           <Form.Control
             type='text'
             name='productName'
-            onChange={handleAddItem}
-            value={formState.productName}
+            onChange={(e) => setAddInput(e.target.value)}
+            value={addInput}
             required
           />
         </Form.Group>
@@ -85,8 +86,8 @@ const AddItem = () => {
           <Form.Control
             type='textarea'
             name='description'
-            onChange={handleAddItem}
-            value={formState.descritpion}
+            onChange={(e) => setAddInput(e.target.value)}
+            value={addInput}
             required
           />
         </Form.Group>
@@ -95,8 +96,8 @@ const AddItem = () => {
           <Form.Control
             type='number'
             name='price'
-            onChange={handleAddItem}
-            value={formState.price}
+            onChange={(e) => setAddInput(e.target.value)}
+            value={addInput}
             required
           />
         </Form.Group>
@@ -105,8 +106,8 @@ const AddItem = () => {
           <Form.Control
             type='number'
             name='quantity'
-            onChange={handleAddItem}
-            value={formState.quantity}
+            onChange={(e) => setAddInput(e.target.value)}
+            value={addInput}
             required
           />
         </Form.Group>
@@ -114,7 +115,7 @@ const AddItem = () => {
           disabled={!(formState.productName && formState.description && formState.price && formState.quantity)}
           type='submit'
           variant='success'
-          onClick={ handleFormSubmit, handleAddItem }>
+          onClick={handleFormSubmit && handleAddItem}>
           Submit
         </Button>
       </Form>
