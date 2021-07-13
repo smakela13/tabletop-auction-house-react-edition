@@ -58,7 +58,7 @@ The user can also view an item and see the Item Name, Price, Quantity, and Categ
 
 ![Tabletop Auction House]()
 
-Navigate to [Tabletop Auction House 2.0]() and view the web page.
+Navigate to [Tabletop Auction House 2.0](https://tabletop-auction-house-2.herokuapp.com/) and view the web page.
 
 ## Wireframe
 
