@@ -49,7 +49,7 @@ const Navigation = () => {
 					<Navbar.Brand
 						className='header-nav px-3'
 						style={{ fontSize: '35px', fontFamily: 'Roboto' }}>
-						Welcome
+						Welcome, <span onClick={() => document.location.replace(`/${Auth.getProfile().data.username}`)}>{Auth.getProfile().data.username}</span>
 					</Navbar.Brand>
 					<Navbar.Toggle aria-controls='responsive-navbar-nav' />
 					<Navbar.Collapse id='responsive-navbar-nav'>
