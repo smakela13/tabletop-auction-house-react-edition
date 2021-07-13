@@ -41,11 +41,8 @@ const Navigation = () => {
 						<Nav.Link href='/'>Home</Nav.Link>
 						<Nav.Link href='/addItem'>Add Item</Nav.Link>
 						<Nav.Link href='/contact'>Contact</Nav.Link>
-						{loggedStatus ? (
-							<Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
-						) : (
-							<Nav.Link href='/signup'>Sign Up</Nav.Link>
-						)}
+						{loggedStatus && <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>}
+						{!loggedStatus && <Nav.Link href='/signup'>Sign Up</Nav.Link>}
 						{!loggedStatus && <Nav.Link href='/login'>Log In</Nav.Link>}
 					</Nav>
 				</Navbar.Collapse>
