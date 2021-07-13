@@ -39,11 +39,7 @@ const Navigation = () => {
 						) : (
 							<Nav.Link href='/signup'>Sign Up</Nav.Link>
 						)}
-						{loggedStatus ? (
-							''
-						) : (
-							<Nav.Link href='/login'>Log In</Nav.Link>
-						)}
+						{!loggedStatus &&	<Nav.Link href='/login'>Log In</Nav.Link>}
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
