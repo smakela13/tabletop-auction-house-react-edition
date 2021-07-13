@@ -36,7 +36,7 @@ const AddItem = () => {
       description: '',
       price: '',
       quantity: '',
-    })
+    }))
     setAddedItem(productData);
     setAddInput('');
   } catch (err) {
