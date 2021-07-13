@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_ITEM } from '../utils/mutations';
@@ -36,7 +36,7 @@ const AddItem = () => {
       description: '',
       price: '',
       quantity: '',
-    });
+    }));
     setaddedItem(productData);
     setAddInput('');
   } catch (err) {
