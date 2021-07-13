@@ -30,6 +30,7 @@ const AddItem = () => {
         throw new Error('something went wrong!');
       }
 
+
       const { products } = await response.json();
       // clear form values
       const productData = products.map(([product]) => ({
