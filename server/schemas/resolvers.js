@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Product } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -43,17 +43,12 @@ const resolvers = {
       return { token, user };
     },
 
-    addItem: async (parent, { productData }, context) => {
+    addItem: async (parent, { productName, description, price, stock }, context) => {
       if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $push: { savedProducts: productData } },
-          { new: true, runValidators: true }
-        );
-
-        return updatedUser;
+        const addedItem = await Product.create({ productName, description, price, stock });
+        return addedItem;
       }
-
+ 
       throw new AuthenticationError('Please Login First!');
     },
     removeItem: async (parent, { productId }, context) => {

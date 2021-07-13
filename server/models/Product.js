@@ -1,5 +1,6 @@
 // Initialize Product model
-const { Schema } = require('mongoose');
+const { Schema, model } = require('mongoose');
+
 
 // sets up fields for Product model and defines columns
 const productSchema = new Schema({
@@ -21,5 +22,6 @@ const productSchema = new Schema({
     default: 10,
 	},
 });
+const Product = model('Product', productSchema);
 
-module.exports = productSchema;
+module.exports = Product;

@@ -48,7 +48,7 @@ export default function App() {
               <Store />
             </Route>
             <Route exact path="/addItem">
-              {/* <AddItem /> */}
+              <AddItem />
             </Route>
             <Route exact path="/contact">
               <Contact />

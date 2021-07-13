@@ -22,8 +22,6 @@ const userSchema = new Schema(
       match: [/.+@.+\..+/, 'Must use a valid email address'],
     },
     
-    // set savedProducts to be an array of data that adheres to the bookSchema
-    savedProducts: [productSchema],
   },
   // set this to use virtual below
   {
