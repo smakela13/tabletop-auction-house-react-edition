@@ -1,43 +1,31 @@
-import Product from '../components/Product';
 import React from 'react';
-import { Table, ListGroup } from 'react-bootstrap';
-
-const products = [
-    {
-    name: 'E-11 Blaster Rifle',
-    description: 'A standard issue E-11 Blaster, common amongst the Galactic Empire Ground and Marine Forces',
-    price: '1500',
-    stock: '50',
-    },
-    {
-    name: 'Jaegerspas XV',
-    description: 'The SPAS-15 semi-automatic shotgun looks and fires more like an assault rifle than a traditional shotgun',
-    price: '513',
-    stock: '5',
-    },
-]
+import { ListGroup } from 'react-bootstrap';
+import {  useQuery } from '@apollo/client';
+// import { REMOVE_ITEM } from '../utils/mutations';
+import { QUERY_PRODUCTS } from '../utils/queries';
 
 
-const renderProducts = () => {
-    return (
-        products.map((product, i) => {
-            return (
-                <Product product={product} key={i}/>
-            );
-        })
-    )
+const Product = () => {
+    // if (product) {
+        const { loading, data } = useQuery(QUERY_PRODUCTS);
+        const product = data?.product || [];
+
+
+      
+        if (loading) {
+          return <h2>We're loading, have some patience</h2>;
+        }
+        return (
+            // <Card> ELISE: id's need to be actual ids! Idk how to do this rn
+                    <ListGroup horizontal >
+                        <ListGroup.Item className='p-3 col-2' id={product.productId}>{product.name}</ListGroup.Item>
+                        <ListGroup.Item className='p-3 col-8' id={product.productId}>{product.description}</ListGroup.Item>
+                        <ListGroup.Item className='p-3 col-1' id={product.productId}>Price:<br/>{product.price}</ListGroup.Item>
+                        <ListGroup.Item className='p-3 col-1' id={product.productId}>Stock:<br />{product.stock}</ListGroup.Item>
+                    </ListGroup> 
+            // </Card>
+        );
+    
 }
 
-const Store = () => {
-    return (
-        <>
-        <Table striped bordered hover responsive>
-            <ListGroup id='product' onClick={(target) => document.location.replace(`/${target.nativeEvent.path[0].attributes[0].nodeValue}`)}>
-                    {renderProducts()}
-            </ListGroup>
-        </Table>
-        </>
-    );
-}
-
-export default Store;
+export default Product;

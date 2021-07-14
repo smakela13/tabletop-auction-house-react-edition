@@ -44,9 +44,13 @@ const resolvers = {
     },
 
     addItem: async (parent, { productName, description, price, stock }, context) => {
-      if (context.user) {
-        const addedItem = await Product.create({ productName, description, price, stock });
-        return addedItem;
+      if (context.product) {
+        const addedItem = await Product.create({ productName, description, price, stock },
+        {$addToSet: {addProduct: args.input} },
+        { new: true, runValidators: true }
+        );
+        return addedProduct;
+      
       }
  
       throw new AuthenticationError('Please Login First!');
