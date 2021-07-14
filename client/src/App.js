@@ -8,8 +8,8 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navigation from './components/Navbar';
-import Store from './pages/store';
-import Product from './components/Product';
+// import Store from './pages/store';
+import Product from './pages/store';
 import AddItem from './pages/addItem';
 import Contact from './components/Contact';
 import Login from './components/Login';
@@ -48,8 +48,8 @@ export default function App() {
             <Route exact path="/profile">
               <Profile />
             </Route>
-            <Route exact path="/" component={Product}>
-              <Store />
+            <Route exact path="/" >
+              <Product />
             </Route>
             <Route exact path="/addItem">
               <AddItem />
