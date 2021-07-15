@@ -17,6 +17,14 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+
+    products: async () => {
+      return Product.find().sort({ createdAt: -1 });
+    },
+
+    product: async (parent, { productId }) => {
+      return Product.findOne({ _id: productId });
+    },
   },
 
   Mutation: {
@@ -43,31 +51,32 @@ const resolvers = {
       return { token, user };
     },
 
-    addItem: async (parent, { productName, description, price, stock }, context) => {
-      if (context.user) {
-        const addedItem = await Product.create({ productName, description, price, stock });
-        return addedItem;
-      }
- 
-      throw new AuthenticationError('Please Login First!');
+    addProduct: async (parent, { productText, productAuthor }) => {
+      return Product.create({ productText, productAuthor });
     },
-    removeItem: async (parent, { productId }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedProducts: { item: productId } } },
-          { new: true }
-        );
-
-        return updatedUser;
-      }
-
-      throw new AuthenticationError('Please Login First!');
+    addComment: async (parent, { productId, commentText }) => {
+      return Product.findOneAndUpdate(
+        { _id: productId },
+        {
+          $addToSet: { comments: { commentText } },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
+    removeProduct: async (parent, { productId }) => {
+      return Product.findOneAndDelete({ _id: productId });
+    },
+    removeComment: async (parent, { productId, commentId }) => {
+      return Product.findOneAndUpdate(
+        { _id: productId },
+        { $pull: { comments: { _id: commentId } } },
+        { new: true }
+      );
     },
   }
 };
 
-  module.exports = resolvers;
- // removeUser: async (parent, { userId }) => {
-    //   return User.findOneAndDelete({ _id: userId });
-    // },
+module.exports = resolvers;

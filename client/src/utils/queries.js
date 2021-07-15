@@ -10,17 +10,13 @@ query {
     }
 `;
 
-export const ADD_ITEM = gql`
-    query{
-        product {
-            productName
-            description
-            price
-            stock
-            category {
-                categoryName
-                categoryId
-            }
-        }
+export const QUERY_PRODUCTS = gql`
+  query getProducts {
+    products {
+      _id
+      productText
+      productAuthor
+      createdAt
     }
+  }
 `;
