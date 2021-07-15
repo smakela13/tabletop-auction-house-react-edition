@@ -12,7 +12,6 @@ const Navigation = () => {
 				src='TabletopAuctionHouseNew.jpg'
 				style={{ objectFit: 'cover' }}
 				fluid
-				className='navbar'
 			/>
 			<Navbar
 				collapseOnSelect
@@ -24,7 +23,7 @@ const Navigation = () => {
 				<Navbar.Brand
 					className='header-nav px-3'
 					style={{ fontSize: '35px', fontFamily: 'Roboto' }}>
-					Welcome{loggedStatus && `,{' '}`}
+					Welcome{loggedStatus && `, `}
 					{loggedStatus && <span onClick={() => document.location.replace('/profile')}>
 						{Auth.getProfile().data.username}
 					</span>}
@@ -32,7 +31,7 @@ const Navigation = () => {
 				<Navbar.Toggle aria-controls='responsive-navbar-nav' />
 				<Navbar.Collapse id='responsive-navbar-nav'>
 					<Nav
-						className='ms-auto px-2 w-100'
+						className='ms-auto px-2'
 						style={{
 							fontSize: '20px',
 							fontFamily: 'Roboto',
