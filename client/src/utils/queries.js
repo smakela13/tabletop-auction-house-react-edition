@@ -11,12 +11,12 @@ query {
 `;
 
 export const QUERY_PRODUCTS = gql`
-    query getProducts{
-        product {
-            productName
-            description
-            price
-            stock
-        }
+  query getProducts {
+    products {
+      _id
+      productText
+      productAuthor
+      createdAt
     }
+  }
 `;

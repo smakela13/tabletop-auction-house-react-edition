@@ -23,25 +23,18 @@ export const ADD_USER = gql`
     }
   }
 `;
-export const ADD_ITEM = gql`
-  mutation addProduct($input: addItemInput!) {
-    addProduct(input: $input) {
-      productName
-      price
-      stock
-      description
-    }
-  }
-`;
 
-export const REMOVE_ITEM = gql`
-  mutation removeItem($productId: String!) {
-    removeItem(productId: $productID)
-      addedProducts {
-        productName
-        price
-        stock
-        description
+export const ADD_PRODUCT = gql`
+  mutation addProduct($productText: String!, $productAuthor: String!) {
+    addProduct(productText: $productText, productAuthor: $productAuthor) {
+      _id
+      productText
+      productAuthor
+      createdAt
+      comments {
+        _id
+        commentText
       }
+    }
   }
 `;
