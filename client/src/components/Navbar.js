@@ -12,14 +12,13 @@ const Navigation = () => {
 				src='TabletopAuctionHouseNew.jpg'
 				style={{ objectFit: 'cover' }}
 				fluid
-				className='navbar'
 			/>
 			<Navbar
 				collapseOnSelect
 				sticky='top'
 				expand='sm'
 				variant='dark'
-				className='header mb-5'
+				className='mb-3'
 				style={{ backgroundColor: '#373737' }}>
 				<Navbar.Brand
 					className='header-nav px-3'
@@ -30,18 +29,17 @@ const Navigation = () => {
 				<Navbar.Toggle aria-controls='responsive-navbar-nav' />
 				<Navbar.Collapse id='responsive-navbar-nav'>
 					<Nav
-						className='ms-auto px-2 w-100'
+						className='ms-auto px-3'
 						style={{
-							fontSize: '20px',
-							fontFamily: 'Roboto',
-							color: 'white',
+							fontSize: '22px',
+							fontFamily: 'Roboto'
 						}}>
-						<Nav.Link href='/'>Home</Nav.Link>
-						<Nav.Link href='/addItem'>Add Item</Nav.Link>
-						<Nav.Link href='/contact'>Contact</Nav.Link>
-						{loggedStatus && <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>}
-						{!loggedStatus && <Nav.Link href='/signup'>Sign Up</Nav.Link>}
-						{!loggedStatus && <Nav.Link href='/login'>Log In</Nav.Link>}
+						<Nav.Link style={{color: 'white'}} href='/'>Home</Nav.Link>
+						<Nav.Link style={{color: 'white'}} href='/addItem'>Add Item</Nav.Link>
+						<Nav.Link style={{color: 'white'}}href='/contact'>Contact</Nav.Link>
+						{loggedStatus && <Nav.Link style={{color: 'white'}} onClick={Auth.logout}>Logout</Nav.Link>}
+						{!loggedStatus && <Nav.Link style={{color: 'white'}} href='/signup'>Sign Up</Nav.Link>}
+						{!loggedStatus && <Nav.Link style={{color: 'white'}} href='/login'>Log In</Nav.Link>}
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
