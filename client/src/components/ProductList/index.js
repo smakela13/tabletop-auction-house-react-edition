@@ -1,28 +1,22 @@
 import React from 'react';
+import { ListGroup, Container } from 'react-bootstrap';
 
 const ProductList = ({ products, title }) => {
   if (!products.length) {
     return <h3>No Products Yet</h3>;
   }
-
   return (
-    <div>
+    <Container>
       <h3>{title}</h3>
-      {products &&
-        products.map((product) => (
-          <div key={product._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
-              {product.productAuthor} <br />
-              <span style={{ fontSize: '1rem' }}>
-                had this product on {product.createdAt}
-              </span>
-            </h4>
-            <div className="card-body bg-light p-2">
-              <p>{product.productText}</p>
-            </div>
-          </div>
-        ))}
-    </div>
+      {products && products.map((product) => (
+      <ListGroup horizontal >
+        <ListGroup.Item className='p-3 col-2' id={product.productId}>{product.productName}</ListGroup.Item>
+        <ListGroup.Item className='p-3 col-8' id={product.productId}>{product.description}</ListGroup.Item>
+        <ListGroup.Item className='p-3 col-1' id={product.productId}>Price:<br />{product.price}</ListGroup.Item>
+        <ListGroup.Item className='p-3 col-1' id={product.productId}>Stock:<br />{product.stock}</ListGroup.Item>
+      </ListGroup>
+      ))}
+    </Container>
   );
 };
 
