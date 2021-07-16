@@ -14,8 +14,10 @@ export const QUERY_PRODUCTS = gql`
   query getProducts {
     products {
       _id
-      productText
-      productAuthor
+      productName
+      price
+      stock
+      description
       createdAt
     }
   }

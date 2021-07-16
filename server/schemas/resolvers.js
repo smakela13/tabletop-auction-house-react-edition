@@ -51,8 +51,8 @@ const resolvers = {
       return { token, user };
     },
 
-    addProduct: async (parent, { productText, productAuthor }) => {
-      return Product.create({ productText, productAuthor });
+    addProduct: async (parent, { productName, price, stock, description }) => {
+      return Product.create({ productName, price, stock, description });
     },
     addComment: async (parent, { productId, commentText }) => {
       return Product.findOneAndUpdate(

@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-
+import { Container, Form, Button } from 'react-bootstrap';
 import { ADD_PRODUCT } from '../../utils/mutations';
 
 const ProductForm = () => {
   const [formState, setFormState] = useState({
-    productText: '',
-    productAuthor: '',
+    productName: '',
+    price: '',
+    stock: '',
+    description: '',
   });
-  const [characterCount, setCharacterCount] = useState(0);
+  // const [characterCount, setCharacterCount] = useState(0);
 
   // Set up our mutation with an option to handle errors
   const [addProduct, { error }] = useMutation(ADD_PRODUCT);
@@ -32,62 +34,66 @@ const ProductForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'productText' && value.length <= 280) {
-      setFormState({ ...formState, [name]: value });
-      setCharacterCount(value.length);
-    } else if (name !== 'productText') {
-      setFormState({ ...formState, [name]: value });
-    }
+        setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
   return (
-    <div>
-      <h3>What's on your techy mind?</h3>
-
-      <p
-        className={`m-0 ${
-          characterCount === 280 || error ? 'text-danger' : ''
-        }`}
-      >
-        Character Count: {characterCount}/280
-        {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
-      <form
-        className="flex-row justify-center justify-space-between-md align-center"
-        onSubmit={handleFormSubmit}
-      >
-        <div className="col-12">
-          <textarea
-            name="productText"
-            placeholder="Here's a new product..."
-            value={formState.productText}
-            className="form-input w-100"
-            onChange={handleChange}
-          ></textarea>
-        </div>
-        <div className="col-12 col-lg-9">
-          <input
-            name="productAuthor"
-            placeholder="Add your name to get credit for the product..."
-            value={formState.productAuthor}
-            className="form-input w-100"
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="col-12 col-lg-3">
-          <button className="btn btn-primary btn-block py-3" type="submit">
-            Add Product
-          </button>
-        </div>
-        {error && (
-          <div className="col-12 my-3 bg-danger text-white p-3">
-            Something went wrong...
-          </div>
-        )}
-      </form>
-    </div>
+    <Container>
+       <Form onSubmit={handleFormSubmit}>
+          <Form.Group>
+            <Form.Label htmlFor='productName'>Product Name</Form.Label>
+            <Form.Control
+              type='text'
+              name='productName'
+              onChange={handleChange}
+              value={formState.productName}
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor='description'>Description</Form.Label>
+            <Form.Control
+              type='textarea'
+              name='description'
+              onChange={handleChange}
+              value={formState.description}
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor='price'>Price</Form.Label>
+            <Form.Control
+              type='number'
+              name='price'
+              onChange={handleChange}
+              value={formState.price}
+              required
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Label htmlFor='stock'>Stock</Form.Label>
+            <Form.Control
+              type='number'
+              name='stock'
+              onChange={handleChange}
+              value={formState.stock}
+              required
+            />
+          </Form.Group>
+          <Button
+            className='m-2'
+            type='submit'
+            variant='success'>
+            Add Item
+          </Button>
+        </Form>
+    </Container>
   );
 };
 
 export default ProductForm;
+
+
