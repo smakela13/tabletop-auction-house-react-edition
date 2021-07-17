@@ -39,9 +39,7 @@ const typeDefs = gql`
         login (email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         addProduct(productName: String!, price: String!, stock: String!, description: String!): Product
-        addComment(productId: ID!, commentText: String!): Product
         removeProduct(productId: ID!): Product
-        removeComment(productId: ID!, commentId: ID!): Product
     }
 
     type Product {
@@ -50,15 +48,8 @@ const typeDefs = gql`
         price: String
         stock: String
         description: String
-        createdAt: String
-        comments: [Comment]!
       }
     
-      type Comment {
-        _id: ID
-        commentText: String
-        createdAt: String
-      }
 `;
 
 module.exports = typeDefs;
