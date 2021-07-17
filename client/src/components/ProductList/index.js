@@ -17,7 +17,11 @@ const ProductList = ({ products, title }) => {
               padding: '1em 1em',
               marginBottom: '1em',
               color: '#000'}}>
-            <Card.Title id={product.productId} style={{fontWeight: 'bold'}}>{product.productName}</Card.Title>
+            <Card.Link
+							id={product.productId}
+							style={{ fontWeight: 'bold' }}>
+							{product.productName}
+						</Card.Link>
             <ListGroup>
               <ListGroupItem style={{backgroundColor: '#9DA5A8'}} id={product.productId}>Description<br />{product.description}</ListGroupItem>
               <ListGroupItem style={{backgroundColor: '#9DA5A8'}} id={product.productId}>Price<br />{product.price}</ListGroupItem>

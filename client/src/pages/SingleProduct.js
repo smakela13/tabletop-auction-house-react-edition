@@ -33,8 +33,7 @@ const SingleProduct = () => {
 							textAlign: 'center',
 							padding: '1em 1em',
 							marginBottom: '1em',
-							color: '#000',
-						}}>
+							color: '#000'}}>
 						<Card.Title
 							id={product.productId}
 							style={{ fontWeight: 'bold' }}>
