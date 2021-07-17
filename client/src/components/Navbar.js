@@ -22,7 +22,7 @@ const Navigation = () => {
 				style={{ backgroundColor: '#373737' }}>
 				<Navbar.Brand
 					className='header-nav px-3'
-					style={{ fontSize: '35px', fontFamily: 'Roboto' }}>
+					style={{ fontSize: '35px', fontFamily: 'Roboto', cursor: 'pointer' }}>
 					Welcome{loggedStatus && <span onClick={() => document.location.replace('/profile')}>,	{Auth.getProfile().data.username}
 					</span>}
 				</Navbar.Brand>
