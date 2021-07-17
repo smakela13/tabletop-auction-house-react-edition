@@ -22,15 +22,3 @@ export const QUERY_PRODUCTS = gql`
     }
   }
 `;
-
-export const QUERY_SINGLE_PRODUCT = gql`
-  query getSingleProduct($productId: ID!) {
-    product(productId: $productId) {
-      _id
-      productName
-      description
-      stock
-      price
-    }
-  }
-`;
