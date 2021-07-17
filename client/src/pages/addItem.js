@@ -21,7 +21,7 @@ const AddItem = () => {
       ) : (
         <>
           <p>
-            Hey now, you need to either login or signup for an account. No trying to sell your merchandise without it{' '}
+            Hey now, you need to either login or signup for an account. No trying to sell your merchandise without it.
             <Link to="/login">LOGIN</Link> or <Link to="/signup">SIGNUP.</Link>
           </p>
         </>
