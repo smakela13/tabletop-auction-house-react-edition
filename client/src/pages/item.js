@@ -5,18 +5,18 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 
-import { QUERY_SINGLE_ITEM } from '../utils/queries';
+import { QUERY_SINGLE_PRODUCT } from '../utils/queries';
 
-const SingleItem = () => {
+const SingleProduct = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
-  const { itemtId } = useParams();
+  const { productId } = useParams();
 
-  const { loading, data } = useQuery(QUERY_SINGLE_ITEM, {
-    // Pass the `itemtId` URL parameter into query to retrieve this itemt's data
-    variables: { itemtId: itemtId },
+  const { loading, data } = useQuery(QUERY_SINGLE_PRODUCT, {
+    // Pass the `productId` URL parameter into query to retrieve this product's data
+    variables: { productId: productId },
   });
 
-  const itemt = data?.itemt || {};
+  const product = data?.product || {};
 
   if (loading) {
     return <div>Loading...</div>;
@@ -24,10 +24,14 @@ const SingleItem = () => {
   return (
     <div className="my-3">
       <h3 className="card-header bg-dark text-light p-2 m-0">
+<<<<<<< HEAD
         {itemt.itemtAuthor} <br />
         <span style={{ fontSize: '1rem' }}>
           had this itemt on {itemt.createdAt}
         </span>
+=======
+        {product.productName} <br />
+>>>>>>> 914b6b4d8785d75ce5d137093b1b004808d98834
       </h3>
       <div className="bg-light py-4">
         <blockquote
@@ -39,11 +43,19 @@ const SingleItem = () => {
             lineHeight: '1.5',
           }}
         >
+<<<<<<< HEAD
           {itemt.itemtText}
+=======
+          {product.description}
+>>>>>>> 914b6b4d8785d75ce5d137093b1b004808d98834
         </blockquote>
       </div>
     </div>
   );
 };
 
+<<<<<<< HEAD
 export default SingleItem;
+=======
+export default SingleProduct;
+>>>>>>> 914b6b4d8785d75ce5d137093b1b004808d98834
