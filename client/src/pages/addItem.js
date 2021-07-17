@@ -1,6 +1,5 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import ProductList from '../components/ProductList';
 import ProductForm from '../components/ProductForm';
 import { Container } from "react-bootstrap";
 import { QUERY_PRODUCTS } from '../utils/queries';
@@ -16,7 +15,6 @@ const AddItem = () => {
       {Auth.loggedIn() ? (
         <>
           <ProductForm />
-          <ProductList products={products} title="Added Products" />
         </>
       ) : (
         <>
