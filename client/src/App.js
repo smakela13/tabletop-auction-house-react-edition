@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
+	ApolloClient,
+	InMemoryCache,
+	ApolloProvider,
+	createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -14,67 +14,65 @@ import AddItem from './pages/addItem';
 import Contact from './components/Contact';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import Profile from './pages/profile'
+import Profile from './pages/profile';
 import SingleProduct from './pages/SingleProduct';
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+	uri: '/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
-  const token = localStorage.getItem('id_token');
-  // return the headers to the context so httpLink can read them
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
+	// get the authentication token from local storage if it exists
+	const token = localStorage.getItem('id_token');
+	// return the headers to the context so httpLink can read them
+	return {
+		headers: {
+			...headers,
+			authorization: token ? `Bearer ${token}` : '',
+		},
+	};
 });
 
 const client = new ApolloClient({
-  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
+	// Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
+	link: authLink.concat(httpLink),
+	cache: new InMemoryCache(),
 });
 
 export default function App() {
-  return (
-    <ApolloProvider client={client}>
-      <Router>
-        <div className="impDiv">
-          {/* <Header /> */}
-            <Navigation />
-            <Route exact path="/profile">
-              <Profile />
-            </Route>
-            <Route exact path="/" >
-              <Product />
-            </Route>
-            <Route exact path="/addItem">
-              <AddItem />
-            </Route>
-            <Route exact path="/contact">
-              <Contact />
-            </Route>
-            <Route exact path="/login">
-              <Login />
-            </Route>
-            <Route exact path="/signup">
-              <Signup />
-            </Route>
-            <Route exact path="/products/:productId">
-              <SingleProduct/>
-            </Route>
-          </div>
-          {/* <Footer /> */}
-      </Router>
-    </ApolloProvider>
-  );
+	return (
+		<ApolloProvider client={client}>
+			<Router>
+				<div className='impDiv'>
+					{/* <Header /> */}
+					<Navigation />
+					<Route exact path='/profile'>
+						<Profile />
+					</Route>
+					<Route exact path='/'>
+						<Product />
+					</Route>
+					<Route exact path='/addItem'>
+						<AddItem />
+					</Route>
+					<Route exact path='/contact'>
+						<Contact />
+					</Route>
+					<Route exact path='/login'>
+						<Login />
+					</Route>
+					<Route exact path='/signup'>
+						<Signup />
+					</Route>
+					<Route exact path='/:productId'>
+						<SingleProduct />
+					</Route>
+				</div>
+				{/* <Footer /> */}
+			</Router>
+		</ApolloProvider>
+	);
 }
-
-
 
 // function App() {
 //   return (
