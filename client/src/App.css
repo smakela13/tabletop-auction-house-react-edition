@@ -24,10 +24,6 @@ input {
   font-size: 14px;
 }
 
-#root > div > form > .contact-form {
-  max-width: 500px;
-}
-
 textarea {
   height: 10em;
   display: block;
