@@ -15,7 +15,7 @@ const Product = () => {
         }
         return (
             // <Card> ELISE: id's need to be actual ids! Idk how to do this rn
-                    <ListGroup horizontal responsive >
+                    <ListGroup horizontal >
                         <ListGroup.Item className='p-3 col-2' id={product.productId}>{product.name}</ListGroup.Item>
                         <ListGroup.Item className='p-3 col-8' id={product.productId}>{product.description}</ListGroup.Item>
                         <ListGroup.Item className='p-3 col-1' id={product.productId}>Price:<br/>{product.price}</ListGroup.Item>
