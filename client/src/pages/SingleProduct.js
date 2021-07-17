@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardColumns, Card } from 'react-bootstrap';
+import { CardColumns, Card, ListGroup,  ListGroupItem  } from 'react-bootstrap';
 
 // Import the `useParams()` hook from React Router
 import { useParams } from 'react-router-dom';
@@ -21,37 +21,37 @@ const SingleProduct = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-  return (
-    <CardColumns>
-      <Card>
-        {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
-        <Card.Body>
-          <Card.Title className='p-3 col-2' id={product.productId}>{product.name}</Card.Title>
-            <Card.Text id={product.productId}>{product.description}</Card.Text>
-            <Card.Text className='p-3 col-8' id={product.productId}>Price:<br />{product.price}</Card.Text>
-            <Card.Text className='p-3 col-1' id={product.productId}>Stock:<br />{product.stock}</Card.Text>
-        </Card.Body>
-      </Card>
-    </CardColumns>
-    // <div className="my-3">
-    //   <h3 className="card-header bg-dark text-light p-2 m-0">
-    //     {product.productName} <br />
-    //   </h3>
-    //   <div className="bg-light py-4">
-    //     <blockquote
-    //       className="p-4"
-    //       style={{
-    //         fontSize: '1.5rem',
-    //         fontStyle: 'italic',
-    //         border: '2px dotted #1a1a1a',
-    //         lineHeight: '1.5',
-    //       }}
-    //     >
-    //       {product.description}
-    //     </blockquote>
-    //   </div>
-    // </div>
-  );
+  const url = `${document.location}`;
+
+  if (url.endsWith(product._id)) {
+    return (
+			<CardColumns style={{ width: '18em', alignSelf: 'center' }}>
+				<Card style={{backgroundColor: '#758084', padding:'5px'}}>
+					{/* <Card.Img variant="top" src="holder.js/100px160" /> */}
+					<Card.Body
+						style={{
+							textAlign: 'center',
+							padding: '1em 1em',
+							marginBottom: '1em',
+							color: '#000',
+						}}>
+						<Card.Title
+							id={product.productId}
+							style={{ fontWeight: 'bold' }}>
+							{product.productName}
+						</Card.Title>
+						<ListGroup>
+              <ListGroupItem style={{backgroundColor: '#9DA5A8'}} id={product.productId}>Description<br />{product.description}</ListGroupItem>
+              <ListGroupItem style={{backgroundColor: '#9DA5A8'}} id={product.productId}>Price<br />{product.price}</ListGroupItem>
+              <ListGroupItem style={{backgroundColor: '#9DA5A8'}} id={product.productId}>Stock<br />{product.stock}</ListGroupItem>
+            </ListGroup>
+					</Card.Body>
+				</Card>
+			</CardColumns>
+		);
+  } else {
+		return <></>;
+  }
 };
 
 export default SingleProduct;

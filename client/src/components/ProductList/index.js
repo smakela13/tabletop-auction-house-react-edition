@@ -10,7 +10,7 @@ const ProductList = ({ products, title }) => {
       <h3>{title}</h3>
       {products && products.map((product) => (
       <CardGroup  style={{width: '18em', marginBottom: '.25em'}} onClick={() => document.location.replace(`/${product._id}`)} key={product._id} >
-        <Card style={{backgroundColor: '#758084'}}>
+        <Card style={{backgroundColor: '#758084', padding:'5px'}}>
           {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
             <Card.Body style={{
               textAlign: 'center',
