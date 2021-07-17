@@ -64,7 +64,7 @@ export default function App() {
             <Route exact path="/signup">
               <Signup />
             </Route>
-            <Route exact path="/products/:productId">
+            <Route exact path="/:productId">
               <SingleProduct/>
             </Route>
           </div>
