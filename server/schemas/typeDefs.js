@@ -52,13 +52,13 @@ const typeDefs = gql`
         description: String
         createdAt: String
         comments: [Comment]!
-      }
+    }
     
-      type Comment {
+    type Comment {
         _id: ID
         commentText: String
         createdAt: String
-      }
+    }
 `;
 
 module.exports = typeDefs;

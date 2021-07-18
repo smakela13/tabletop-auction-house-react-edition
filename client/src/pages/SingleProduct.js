@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardColumns, Card, ListGroup,  ListGroupItem  } from 'react-bootstrap';
+import { CardColumns, Card, ListGroup, Button, ListGroupItem  } from 'react-bootstrap';
 
 // Import the `useParams()` hook from React Router
 import { useParams } from 'react-router-dom';
@@ -26,24 +26,47 @@ const SingleProduct = () => {
   if (url.endsWith(product._id)) {
     return (
 			<CardColumns style={{ width: '18em', alignSelf: 'center' }}>
-				<Card style={{backgroundColor: '#758084', padding:'5px'}}>
+				<Card style={{ backgroundColor: '#758084', padding: '5px' }}>
 					{/* <Card.Img variant="top" src="holder.js/100px160" /> */}
 					<Card.Body
 						style={{
 							textAlign: 'center',
 							padding: '1em 1em',
 							marginBottom: '1em',
-							color: '#000'}}>
-						<Card.Title
+							color: '#000',
+						}}>
+						<Card.Link
+							href='#'
 							id={product.productId}
 							style={{ fontWeight: 'bold' }}>
 							{product.productName}
-						</Card.Title>
+						</Card.Link>
 						<ListGroup>
-              <ListGroupItem style={{backgroundColor: '#9DA5A8'}} id={product.productId}>Description<br />{product.description}</ListGroupItem>
-              <ListGroupItem style={{backgroundColor: '#9DA5A8'}} id={product.productId}>Price<br />{product.price}</ListGroupItem>
-              <ListGroupItem style={{backgroundColor: '#9DA5A8'}} id={product.productId}>Stock<br />{product.stock}</ListGroupItem>
-            </ListGroup>
+							<ListGroupItem
+								style={{ backgroundColor: '#9DA5A8' }}
+								id={product.productId}>
+								Description
+								<br />
+								{product.description}
+							</ListGroupItem>
+							<ListGroupItem
+								style={{ backgroundColor: '#9DA5A8' }}
+								id={product.productId}>
+								Price
+								<br />
+								{product.price}
+							</ListGroupItem>
+							<ListGroupItem
+								style={{ backgroundColor: '#9DA5A8' }}
+								id={product.productId}>
+								Stock
+								<br />
+								{product.stock}
+							</ListGroupItem>
+						</ListGroup>
+						<Button name='Delete' onClick={handleDelete}>
+							Delete
+						</Button>
 					</Card.Body>
 				</Card>
 			</CardColumns>
