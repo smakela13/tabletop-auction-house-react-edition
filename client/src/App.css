@@ -67,3 +67,24 @@ input[type="submit"]:active {
   border: 1px solid transparent;
   opacity: 0.8;
 }
+
+a.card-link {
+  color: #000;
+  font-weight: bold;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+a.card-link:hover {
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+h3 {
+  margin-left: 15px;
+}
+
+p {
+  margin-left: 15px;
+}

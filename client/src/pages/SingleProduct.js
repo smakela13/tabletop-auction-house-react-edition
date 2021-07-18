@@ -33,7 +33,7 @@ const SingleProduct = () => {
     // }
     window.location.reload();
   };
- 
+
   // Set up our mutation with an option to handle errors
   const [updateProduct, { error }] = useMutation(UPDATE_PRODUCT);
 //  Not sure why setting initial values isn't working
@@ -86,7 +86,53 @@ const SingleProduct = () => {
   if (!product.productName) {
     return <h2>Product Removed</h2>;
   }
-  return (
+	return (
+		// <CardColumns style={{ width: '18em', alignSelf: 'center' }}>
+		// 		<Card style={{ backgroundColor: '#758084', padding: '5px' }}>
+		// 			{/* <Card.Img variant="top" src="holder.js/100px160" /> */}
+		// 			<Card.Body
+		// 				style={{
+		// 					textAlign: 'center',
+		// 					padding: '1em 1em',
+		// 					marginBottom: '1em',
+		// 					color: '#000',
+		// 				}}>
+		// 				<Card.Link
+		// 					href='#'
+		// 					id={product.productId}
+		// 					style={{ fontWeight: 'bold' }}>
+		// 					{product.productName}
+		// 				</Card.Link>
+		// 				<ListGroup>
+		// 					<ListGroupItem
+		// 						style={{ backgroundColor: '#9DA5A8' }}
+		// 						id={product.productId}>
+		// 						Description
+		// 						<br />
+		// 						{product.description}
+		// 					</ListGroupItem>
+		// 					<ListGroupItem
+		// 						style={{ backgroundColor: '#9DA5A8' }}
+		// 						id={product.productId}>
+		// 						Price
+		// 						<br />
+		// 						{product.price}
+		// 					</ListGroupItem>
+		// 					<ListGroupItem
+		// 						style={{ backgroundColor: '#9DA5A8' }}
+		// 						id={product.productId}>
+		// 						Stock
+		// 						<br />
+		// 						{product.stock}
+		// 					</ListGroupItem>
+		// 				</ListGroup>
+		// 				<Button name='Delete' onClick={handleDelete}>
+		// 					Delete
+		// 				</Button>
+		// 			</Card.Body>
+		// 		</Card>
+		// 	</CardColumns>
+		
     <Container>
       <ListGroup horizontal >
         <Button
@@ -158,22 +204,3 @@ const SingleProduct = () => {
 };
 
 export default SingleProduct;
-
-
-
-{/* <h3 className="card-header bg-dark text-light p-2 m-0">
-{product.productName} <br />
-</h3>
-<div className="bg-light py-4">
-<blockquote
-  className="p-4"
-  style={{
-    fontSize: '1.5rem',
-    fontStyle: 'italic',
-    border: '2px dotted #1a1a1a',
-    lineHeight: '1.5',
-  }}
->
-  {product.description}
-</blockquote>
-</div> */}

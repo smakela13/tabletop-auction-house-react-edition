@@ -22,7 +22,7 @@ const Navigation = () => {
 				style={{ backgroundColor: '#373737' }}>
 				<Navbar.Brand
 					className='header-nav px-3'
-					style={{ fontSize: '35px', fontFamily: 'Roboto' }}>
+					style={{ fontSize: '35px', fontFamily: 'Roboto', cursor: 'pointer' }}>
 					Welcome{loggedStatus && <span onClick={() => document.location.replace('/profile')}>,	{Auth.getProfile().data.username}
 					</span>}
 				</Navbar.Brand>
@@ -36,6 +36,7 @@ const Navigation = () => {
 						}}>
 						<Nav.Link style={{color: 'white'}} href='/'>Home</Nav.Link>
 						<Nav.Link style={{color: 'white'}} href='/addItem'>Add Item</Nav.Link>
+						<Nav.Link style={{color: 'white'}} href='/shopkeeper'>Shopkeeper</Nav.Link>
 						<Nav.Link style={{color: 'white'}}href='/contact'>Contact</Nav.Link>
 						{loggedStatus && <Nav.Link style={{color: 'white'}} onClick={Auth.logout}>Logout</Nav.Link>}
 						{!loggedStatus && <Nav.Link style={{color: 'white'}} href='/signup'>Sign Up</Nav.Link>}
