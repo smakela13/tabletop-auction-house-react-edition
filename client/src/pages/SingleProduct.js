@@ -39,9 +39,9 @@ const SingleProduct = () => {
 //  Not sure why setting initial values isn't working
   const [formState, setFormState] = useState({
     productName: product.productName,
-    price: product.description,
-    stock: product.price,
-    description: product.stock,
+    price: product.price,
+    stock: product.stock,
+    description: product.description,
     category: product.category,
   });
   // const [characterCount, setCharacterCount] = useState(0);
@@ -49,6 +49,23 @@ const SingleProduct = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     // destructure state
+
+    if (formState.productName == undefined) {
+      formState.productName = product.productName;
+    }
+    if (formState.price == undefined) {
+      formState.price = product.price;
+    }
+    if (formState.stock == undefined) {
+      formState.stock = product.stock;
+    }
+    if (formState.description == undefined) {
+      formState.description = product.description;
+    }
+    if (formState.category == undefined) {
+      formState.category = product.category;
+    }
+
     const {
       productName,
       price,
@@ -91,27 +108,15 @@ const SingleProduct = () => {
   if (url.endsWith(product._id)) {
     return (
       <Container>
-        <ListGroup horizontal >
-          <Button
-            name='Delete'
-            onClick={() => handleDelete()}
-          >Delete</Button>
-          <ListGroup.Item className='p-3 col-2'>{product.productName}</ListGroup.Item>
-          <ListGroup.Item className='p-3 col-7'>{product.description}</ListGroup.Item>
-          <ListGroup.Item className='p-3 col-1'>Price:<br />{product.price}</ListGroup.Item>
-          <ListGroup.Item className='p-3 col-1'>Stock:<br />{product.stock}</ListGroup.Item>
-          <ListGroup.Item className='p-3 col-1'>Category:<br />{product.category}</ListGroup.Item>
-        </ListGroup>
         <Form onSubmit={handleFormSubmit}>
           <Form.Group>
             <Form.Label htmlFor='productName'>Product Name:</Form.Label>
             <Form.Control
-
               type='text'
               name='productName'
+              placeholder={product.productName}
               onChange={handleChange}
               value={formState.productName}
-              required
             />
           </Form.Group>
           <Form.Group>
@@ -120,9 +125,9 @@ const SingleProduct = () => {
 
               type='textarea'
               name='description'
+              placeholder={product.description}
               onChange={handleChange}
               value={formState.description}
-              required
             />
           </Form.Group>
           <Form.Group>
@@ -130,9 +135,9 @@ const SingleProduct = () => {
             <Form.Control
               type='number'
               name='price'
+              placeholder={product.price}
               onChange={handleChange}
               value={formState.price}
-              required
             />
           </Form.Group>
           <Form.Group>
@@ -140,9 +145,9 @@ const SingleProduct = () => {
             <Form.Control
               type='number'
               name='stock'
+              placeholder={product.stock}
               onChange={handleChange}
               value={formState.stock}
-              required
             />
           </Form.Group>
           <Form.Group>
@@ -150,9 +155,9 @@ const SingleProduct = () => {
             <Form.Control
               type='textarea'
               name='category'
+              placeholder={product.category}
               onChange={handleChange}
               value={formState.category}
-              required
             />
           </Form.Group>
           <Button
@@ -160,6 +165,12 @@ const SingleProduct = () => {
             className='my-3'
             type='submit'
             value='Update Item' />
+          <Button
+            as='input'
+            className='my-3'
+            type='submit'
+            value='Delete Item'
+            onClick={() => handleDelete()} />
         </Form>
       </Container>
     );
