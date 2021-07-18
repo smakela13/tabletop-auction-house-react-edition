@@ -9,7 +9,7 @@ const ProductList = ({ products, title }) => {
     <Container>
       <h3>{title}</h3>
       {products && products.map((product) => (
-      <ListGroup onClick={() => document.location.replace(`/products/${product._id}`)} key={product._id} horizontal >
+      <ListGroup onClick={() => document.location.replace(`/${product._id}`)} key={product._id} horizontal >
         <ListGroup.Item className='p-3 col-2'>{product.productName}</ListGroup.Item>
         <ListGroup.Item className='p-3 col-7'>{product.description}</ListGroup.Item>
         <ListGroup.Item className='p-3 col-1'>Price:<br />{product.price}</ListGroup.Item>

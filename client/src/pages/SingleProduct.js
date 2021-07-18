@@ -9,8 +9,6 @@ import { UPDATE_PRODUCT } from '../utils/mutations';
 import { REMOVE_PRODUCT } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-
-
 const SingleProduct = () => {
 
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
@@ -35,10 +33,10 @@ const SingleProduct = () => {
     // }
     window.location.reload();
   };
+ 
   // Set up our mutation with an option to handle errors
   const [updateProduct, { error }] = useMutation(UPDATE_PRODUCT);
-
-
+//  Not sure why setting initial values isn't working
   const [formState, setFormState] = useState({
     productName: product.productName,
     price: product.description,
@@ -57,17 +55,14 @@ const SingleProduct = () => {
       description
     } = formState;
 
-    /** make sure PRICE is used when sending - that's what data field is in database */
+    // if we want to set typeDefs to INT for stock and price we use parseInt() here
     const buildInput = {
       productName: productName,
       price: price,
       stock: stock,
       description: description
     };
-
-    console.log({ ...buildInput, _id: product._id });
     // On form submit, perform mutation and pass in form data object as arguments
-    // It is important that the object fields are match the defined parameters in `ADD_PRODUCT` mutation
     try {
       const { data } = updateProduct({
         variables: { ...buildInput, _id: product._id },
@@ -92,12 +87,12 @@ const SingleProduct = () => {
     return <h2>Product Removed</h2>;
   }
   return (
-
     <Container>
       <ListGroup horizontal >
         <Button
-          name='Delete'
-          onClick={() => handleFormSubmit()}>
+          name='Edit'
+          // onClick={() => handleFormSubmit()}
+          >
           Edit
         </Button>
         <Button
@@ -156,7 +151,7 @@ const SingleProduct = () => {
           as='input'
           className='my-3'
           type='submit'
-          value='Add Item' />
+          value='Update Item' />
       </Form>
     </Container>
   );
