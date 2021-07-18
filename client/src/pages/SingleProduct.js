@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client'
 // Import the `useParams()` hook from React Router
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { Container, Button, ListGroup, Form } from "react-bootstrap";
+import { Container, Button, ListGroup, ListGroupItem, CardGroup, Card, Form } from "react-bootstrap";
 import { QUERY_SINGLE_PRODUCT } from '../utils/queries';
 import { UPDATE_PRODUCT } from '../utils/mutations';
 import { REMOVE_PRODUCT } from '../utils/mutations';
@@ -90,9 +90,9 @@ const SingleProduct = () => {
     return <h2>Product Removed</h2>;
   }
 	return (
-		// <CardColumns style={{ width: '18em', alignSelf: 'center' }}>
+		// {/* <CardGroup style={{ width: '18em', alignSelf: 'center' }}>
 		// 		<Card style={{ backgroundColor: '#758084', padding: '5px' }}>
-		// 			{/* <Card.Img variant="top" src="holder.js/100px160" /> */}
+		// 			<Card.Img variant="top" src="holder.js/100px160" />
 		// 			<Card.Body
 		// 				style={{
 		// 					textAlign: 'center',
@@ -129,12 +129,21 @@ const SingleProduct = () => {
 		// 						{product.stock}
 		// 					</ListGroupItem>
 		// 				</ListGroup>
-		// 				<Button name='Delete' onClick={handleDelete}>
-		// 					Delete
-		// 				</Button>
 		// 			</Card.Body>
+		// 			<Button
+		// 				as='input'
+		// 				name='Edit'
+		// 				// onClick={() => handleFormSubmit()}
+		// 				value='Edit'
+		// 			/>
+		// 			<Button
+		// 				as='input'
+		// 				name='Delete'
+		// 				onClick={handleDelete}
+		// 				value='Delete'
+		// 			/>
 		// 		</Card>
-		// 	</CardColumns>
+		// 	</CardGroup> */}
 		
     <Container>
       <ListGroup horizontal >
