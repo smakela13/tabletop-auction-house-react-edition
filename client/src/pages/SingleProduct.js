@@ -42,6 +42,7 @@ const SingleProduct = () => {
     price: product.description,
     stock: product.price,
     description: product.stock,
+    category: product.category,
   });
   // const [characterCount, setCharacterCount] = useState(0);
 
@@ -52,7 +53,8 @@ const SingleProduct = () => {
       productName,
       price,
       stock,
-      description
+      description,
+      category
     } = formState;
 
     // if we want to set typeDefs to INT for stock and price we use parseInt() here
@@ -60,7 +62,8 @@ const SingleProduct = () => {
       productName: productName,
       price: price,
       stock: stock,
-      description: description
+      description: description,
+      category: category
     };
     // On form submit, perform mutation and pass in form data object as arguments
     try {
@@ -149,6 +152,7 @@ const SingleProduct = () => {
         <ListGroup.Item className='p-3 col-7'>{product.description}</ListGroup.Item>
         <ListGroup.Item className='p-3 col-1'>Price:<br />{product.price}</ListGroup.Item>
         <ListGroup.Item className='p-3 col-1'>Stock:<br />{product.stock}</ListGroup.Item>
+        <ListGroup.Item className='p-3 col-1'>Category:<br />{product.category}</ListGroup.Item>
       </ListGroup>
       <Form onSubmit={handleFormSubmit}>
         <Form.Group>
@@ -190,6 +194,16 @@ const SingleProduct = () => {
             name='stock'
             onChange={handleChange}
             value={formState.stock}
+            required
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label htmlFor='stock'>Category:</Form.Label>
+          <Form.Control
+            type='textarea'
+            name='category'
+            onChange={handleChange}
+            value={formState.category}
             required
           />
         </Form.Group>

@@ -9,6 +9,7 @@ const ProductForm = () => {
     price: '',
     stock: '',
     description: '',
+    category: '',
   });
   // const [characterCount, setCharacterCount] = useState(0);
 
@@ -82,6 +83,16 @@ const ProductForm = () => {
             value={formState.stock}
             required
           />
+        <Form.Group>
+          <Form.Label htmlFor='category'>Category</Form.Label>
+          <Form.Control
+            type='textarea'
+            name='category'
+            onChange={handleChange}
+            value={formState.category}
+            required
+          />
+          </Form.Group>
         </Form.Group>
         <Button
           as='input'

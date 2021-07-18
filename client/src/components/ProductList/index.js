@@ -35,8 +35,7 @@ const ProductList = ({ products, title }) => {
         <ListGroup.Item className='p-3 col-7'>{product.description}</ListGroup.Item>
         <ListGroup.Item className='p-3 col-1'>Price:<br />{product.price}</ListGroup.Item>
         <ListGroup.Item className='p-3 col-1'>Stock:<br />{product.stock}</ListGroup.Item>
-        <ListGroup.Item className='p-3 col-1'>Stock:<br />
-        </ListGroup.Item>
+        <ListGroup.Item className='p-3 col-1'>Category:<br />{product.category}</ListGroup.Item>
       </ListGroup>
       ))}
     </Container>

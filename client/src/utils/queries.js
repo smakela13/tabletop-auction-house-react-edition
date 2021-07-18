@@ -18,6 +18,7 @@ export const QUERY_PRODUCTS = gql`
       price
       stock
       description
+      category
       createdAt
     }
   }
@@ -31,6 +32,7 @@ export const QUERY_SINGLE_PRODUCT = gql`
       price
       stock
       description
+      category
       createdAt
     }
   }
