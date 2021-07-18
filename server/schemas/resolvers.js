@@ -51,8 +51,8 @@ const resolvers = {
       return { token, user };
     },
 
-    addProduct: async (parent, { productName, price, stock, description }) => {
-      return Product.create({ productName, price, stock, description });
+    addProduct: async (parent, { productName, price, stock, description, category }) => {
+      return Product.create({ productName, price, stock, description, category });
     },
     addComment: async (parent, { productId, commentText }) => {
       return Product.findOneAndUpdate(
@@ -72,10 +72,10 @@ const resolvers = {
     updateProduct: async (parent, { input }, context) => {
       const { _id  } = input;
 
-       const { productName, price,stock, description } = input;
+       const { productName, price,stock, description, category } = input;
 
       //  if (context.user) {
-           const product = await Product.findOneAndUpdate({ _id: _id }, { $set: { productName, price, stock, description }});
+           const product = await Product.findOneAndUpdate({ _id: _id }, { $set: { productName, price, stock, description, category }});
 
            return product;
       //  }
