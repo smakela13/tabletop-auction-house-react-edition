@@ -40,3 +40,42 @@ export const ADD_PRODUCT = gql`
     }
   }
 `;
+export const UPDATE_PRODUCT = gql`
+mutation updateProduct(
+    $_id: ID!,
+    $productName: String,
+    $price: String,
+    $stock: String,
+    $description: String,
+ ) {
+  updateProduct(input: {
+    _id: $_id,
+    productName: $productName
+    price: $price
+    stock: $stock
+    description: $description
+  }) {
+    _id
+  }
+ }
+ `;
+
+export const REMOVE_PRODUCT = gql`
+mutation removeProduct($_id: ID!) {
+  removeProduct(_id: $_id) {
+    _id
+  }
+}
+`;
+
+// export const REMOVE_PRODUCT = gql`
+//   mutation removeProduct($productId: ID!) {
+//       removeProduct(productId: $productId) {
+//         _id
+//         productName
+//         description
+//         price
+//         stock
+//     }
+//   }
+// `;

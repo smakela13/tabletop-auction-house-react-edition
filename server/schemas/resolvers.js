@@ -66,9 +66,34 @@ const resolvers = {
         }
       );
     },
-    removeProduct: async (parent, { productId }) => {
-      return Product.findOneAndDelete({ _id: productId });
-    },
+    // removeProduct: async (parent, { productId }) => {
+    //   return Product.findOneAndDelete({ _id: product._id });
+    // },
+    updateProduct: async (parent, { input }, context) => {
+      const { _id  } = input;
+
+       const { productName, price,stock, description } = input;
+
+      //  if (context.user) {
+           const product = await Product.findOneAndUpdate({ _id: _id }, { $set: { productName, price, stock, description }});
+
+           return product;
+      //  }
+      //  throw new AuthenticationError('Not Logged In')
+   },
+
+    removeProduct: async (parent, { _id }, context) => {
+      try {
+          // if (context.user) {
+              const product = await Product.deleteOne({ _id: _id });
+
+              return product;
+          // }
+          // throw new AuthenticationError('Not Logged In')
+      } catch (error) {
+          throw new AuthenticationError('No product was found');
+      }
+  },
     removeComment: async (parent, { productId, commentId }) => {
       return Product.findOneAndUpdate(
         { _id: productId },
