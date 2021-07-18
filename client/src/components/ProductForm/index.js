@@ -25,7 +25,7 @@ const ProductForm = () => {
         variables: { ...formState },
       });
 
-      window.location.reload();
+      document.location.replace('/');
     } catch (err) {
       console.error(err);
     }
