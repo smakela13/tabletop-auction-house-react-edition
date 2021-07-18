@@ -28,6 +28,14 @@ const typeDefs = gql`
         product(productId: ID!): Product
     }
 
+    input UpdateProductInput {
+        _id: ID
+        productName: String
+        price: String
+        stock: String
+        description: String
+    }
+
     type GM {
         _id: ID!
         name: String!
@@ -40,7 +48,8 @@ const typeDefs = gql`
         addUser(username: String!, email: String!, password: String!): Auth
         addProduct(productName: String!, price: String!, stock: String!, description: String!): Product
         addComment(productId: ID!, commentText: String!): Product
-        removeProduct(productId: ID!): Product
+        updateProduct(input: UpdateProductInput!): Product
+        removeProduct(_id: ID!): Product
         removeComment(productId: ID!, commentId: ID!): Product
     }
 
