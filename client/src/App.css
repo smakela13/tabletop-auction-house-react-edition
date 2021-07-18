@@ -80,3 +80,11 @@ a.card-link:hover {
   font-weight: bold;
   cursor: pointer;
 }
+
+h3 {
+  margin-left: 15px;
+}
+
+p {
+  margin-left: 15px;
+}

@@ -1,71 +1,91 @@
 import React from 'react';
 import Faker from 'faker';
+import { Button, Card } from 'react-bootstrap';
+
+const traitList = [
+	'Athletic',
+	'Bald',
+	'Balding',
+	'Flirty',
+	'Sweet',
+	'Tall',
+	'Friendly',
+	'Attractive',
+	'Chubby',
+	'Cute',
+	'Dapper',
+	'Dazzling',
+	'Elegant',
+	'Fancy',
+	'Glamorous',
+	'Gaunt',
+	'Gloomy',
+	'Handsome',
+	'Angry',
+	'Jazzy',
+	'Looming',
+	'Macho',
+	'Mature',
+	'Moody',
+	'Neat',
+	'Nifty',
+	'Pompous',
+];
+
+const naturalHairColors = [
+	'Black',
+	'Blonde',
+	'Brown',
+	'Red',
+	'Grey',
+	'White',
+];
+
+const naturalEyeColors = [
+	'Blue',
+	'Brown',
+	'Green',
+	'Hazel',
+	'Grey',
+	'Grey-Blue',
+	'Grey-Green',
+	'Amber',
+	'Violet'
+];
 
 const Shopkeeper = () => {
-	// const naturalHairColors = {
-	// 	40: 'black',
-	// 	75: 'brunette',
-	// 	95: 'blonde',
-	// 	100: 'red',
-	// };
 
-	// let number = Math.floor(Math.random() * 100) + 1;
+	function refreshPage() {
+		window.location.reload(false);
+	}
 
-	// for (keys in naturalHairColors) {
-	// 	if (number <= keys) {
-	// 		return naturalHairColors[keys];
-	// 	}
-	// }
-
-	// 	generateRandomEyeColor() {
-	// 		let naturalEyeColors = {
-	// 			60: 'brown',
-	// 			93: 'blue',
-	// 			95: 'hazel',
-	// 			97: 'amber',
-	// 			99: 'grey',
-	// 			100: 'violet'
-	// 		}
-
-	// 		let number = Math.floor(Math.random() * 100) + 1
-	// 		let keys
-
-	// 		for (keys in naturalEyeColors) {
-	// 			if (number <= keys) {
-	// 				return naturalEyeColors[keys]
-	// 			}
-	// 		}
-	// 	}
+	function useNaturalColors(naturalColors, colorArray) {
+		if (naturalColors) {
+			return colorArray[Math.floor(Math.random() * colorArray.length)]
+		}
+		return Faker.commerce.color().split(" ")
+			.map(e => {return e.charAt(0).toUpperCase() + e.slice(1)}).join(" ");
+	}
 
 	const character = {
 		firstName: Faker.name.firstName(),
 		lastName: Faker.name.lastName(),
-		eyeColor: Faker.commerce.color(),
-		hairColor: Faker.commerce.color(),
+		eyeColor: useNaturalColors(true, naturalEyeColors),
+		hairColor: useNaturalColors(true, naturalHairColors), 
 	};
 
 	return (
 		<>
-			{/* <form onSubmit={this.handleSubmit}>
-  <label>Use natural hair color
-		<input
-			name="naturalHColor"
-			type="checkbox"
-			checked={this.state.naturalHColor}
-			onChange={(e) => this.handleHairInputChange(e)} />
-  </label>
-	<label>Use natural eye color
-		<input
-			name="naturalEColor"
-			type="checkbox"
-			checked={this.state.naturalEColor}
-			onChange={(e) => this.handleEyeInputChange(e)} />
-	</label>
-</form> */}
-			<div>
-				<h1>Generate Random characters!</h1>
-				<p>{`${character.firstName} ${character.lastName}`}</p>
-			</div>
+			<Card style={{color: '#000', width: '40em', alignSelf: 'center', backgroundColor: '#758084', padding: '5px'}}>
+				<h3>Generate a Random Shopkeeper!</h3>
+				<p>{`First Name: ${character.firstName}`}</p>
+				<p>{`Last Name: ${character.lastName}`}</p>
+				<p>{`Hair Color: ${character.hairColor}`}</p>
+				<p>{`Eye Color: ${character.eyeColor}`}</p>
+				<p>{`Trait: ${traitList[Math.floor(Math.random() * traitList.length)]}`}</p>
+				{/* <label>Natural Colors</label><input type='checkbox' onChange={} /> */}
+				<Button as='input' type='submit' value='New Shopkeeper' onClick={refreshPage}/>
+			</Card>
 		</>
 	);
 };

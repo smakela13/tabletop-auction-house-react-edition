@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navigation from './components/Navbar';
 // import Store from './pages/store';
 import Product from './pages/store';
+import Shopkeeper from './components/Shopkeeper';
 import AddItem from './pages/addItem';
 import Contact from './components/Contact';
 import Login from './components/Login';
@@ -55,6 +56,9 @@ export default function App() {
 					<Route exact path='/addItem'>
 						<AddItem />
 					</Route>
+					<Route exact path='/shopkeeper'>
+						<Shopkeeper />
+					</Route>
 					<Route exact path='/contact'>
 						<Contact />
 					</Route>
@@ -73,23 +77,3 @@ export default function App() {
 		</ApolloProvider>
 	);
 }
-
-// function App() {
-//   return (
-//     <Router>
-//       <>
-//         <Navigation />
-//         <Switch>
-//           <Route exact path='/' component={Store} />
-//           {/* <Route exact path='/Product' component={Store} /> */}
-//           <Route path='/login' component={Login} />
-//           <Route path='/signup' component={Signup} />
-//           <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
-//         </Switch>
-//       </>
-//     </Router>
-//   );
-
-// }
-
-// export default App;
