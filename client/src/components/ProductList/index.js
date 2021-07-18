@@ -25,7 +25,8 @@ const ProductList = ({ products, title }) => {
             <ListGroup>
               <ListGroupItem style={{backgroundColor: '#828d90'}} id={product.productId}>Description<br />{product.description}</ListGroupItem>
               <ListGroupItem style={{backgroundColor: '#828d90'}} id={product.productId}>Price<br />{product.price}</ListGroupItem>
-              <ListGroupItem style={{backgroundColor: '#828d90'}} id={product.productId}>Stock<br />{product.stock}</ListGroupItem>
+                <ListGroupItem style={{backgroundColor: '#828d90'}} id={product.productId}>Stock<br />{product.stock}</ListGroupItem>
+                <ListGroup.Item style={{backgroundColor: '#828d90'}} id={product.productId}>Category:<br />{product.category}</ListGroup.Item>
             </ListGroup>
             </Card.Body>
         </Card>
