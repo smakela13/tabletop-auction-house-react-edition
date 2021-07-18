@@ -10,7 +10,8 @@ const Navigation = () => {
 		<>
 			<Image
 				src='TabletopAuctionHouseNew.jpg'
-				style={{ objectFit: 'cover' }}
+				style={{objectFit: 'cover'}}
+				alt='Tabletop Auction House'
 				fluid
 			/>
 			<Navbar
