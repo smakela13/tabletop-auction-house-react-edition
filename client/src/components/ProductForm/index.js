@@ -11,7 +11,6 @@ const ProductForm = () => {
     description: '',
     category: '',
   });
-  // const [characterCount, setCharacterCount] = useState(0);
 
   // Set up our mutation with an option to handle errors
   const [addProduct, { error }] = useMutation(ADD_PRODUCT);
