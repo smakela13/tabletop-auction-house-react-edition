@@ -8,13 +8,20 @@ const ProductList = ({ products, title }) => {
   return (
     <Container className='row'>
       <h3>{title}</h3>
+      <ListGroup style={{marginBottom: '.2em', minHeight: '2.5em', fontSize: '20px'}} horizontal>
+        <ListGroup.Item className='col-2' style={{backgroundColor: '#B0B0B0', fontWeight: 'bold'}}>Name</ListGroup.Item>
+        <ListGroup.Item className='col-6' style={{backgroundColor: '#B0B0B0', fontWeight: 'bold'}}>Description</ListGroup.Item>
+        <ListGroup.Item className='col-1' style={{backgroundColor: '#B0B0B0', fontWeight: 'bold'}}>Price</ListGroup.Item>
+        <ListGroup.Item className='col-1' style={{backgroundColor: '#B0B0B0', fontWeight: 'bold'}}>Stock</ListGroup.Item>
+        <ListGroup.Item className='col-2' style={{backgroundColor: '#B0B0B0', fontWeight: 'bold'}}>Category</ListGroup.Item>
+      </ListGroup>
       {products && products.map((product) => (
-        <ListGroup style={{width: '40em', marginBottom: '.25em'}} onClick={() => document.location.replace(`/${product._id}`)} key={product._id} horizontal>
-          <ListGroup.Item style={{backgroundColor: '#B0B0B0', fontWeight: 'bold'}} id={product.productId}>{product.productName}</ListGroup.Item>
-          <ListGroup.Item style={{backgroundColor: '#B0B0B0'}} id={product.productId}>{product.description}</ListGroup.Item>
-          <ListGroup.Item style={{backgroundColor: '#B0B0B0'}} id={product.productId}>Price<br />{product.price}</ListGroup.Item>
-          <ListGroup.Item style={{backgroundColor: '#B0B0B0'}} id={product.productId}>Stock<br />{product.stock}</ListGroup.Item>
-          <ListGroup.Item style={{backgroundColor: '#B0B0B0'}} id={product.productId}>Category:<br />{product.category}</ListGroup.Item>
+        <ListGroup style={{marginBottom: '.25em', minHeight: '4em'}} onClick={() => document.location.replace(`/${product._id}`)} key={product._id} horizontal>
+          <ListGroup.Item className='col-2' style={{backgroundColor: '#B0B0B0', textDecoration: 'underline', cursor: 'pointer'}} id={product.productId}>{product.productName}</ListGroup.Item>
+          <ListGroup.Item className='col-6' style={{backgroundColor: '#B0B0B0'}} id={product.productId}>{product.description}</ListGroup.Item>
+          <ListGroup.Item className='col-1' style={{backgroundColor: '#B0B0B0'}} id={product.productId}>{product.price}</ListGroup.Item>
+          <ListGroup.Item className='col-1' style={{backgroundColor: '#B0B0B0'}} id={product.productId}>{product.stock}</ListGroup.Item>
+          <ListGroup.Item className='col-2' style={{backgroundColor: '#B0B0B0'}} id={product.productId}>{product.category}</ListGroup.Item>
         </ListGroup>
       ))}
     </Container>

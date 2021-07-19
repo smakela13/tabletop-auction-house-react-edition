@@ -119,6 +119,7 @@ const SingleProduct = () => {
             <Form.Control
               type='textarea'
               name='description'
+              maxLength='65'
               placeholder={product.description}
               onChange={handleChange}
               value={formState.description}
