@@ -8,8 +8,10 @@ import { Container, Button, Form } from "react-bootstrap";
 import { QUERY_SINGLE_PRODUCT } from '../utils/queries';
 import { UPDATE_PRODUCT } from '../utils/mutations';
 import { REMOVE_PRODUCT } from '../utils/mutations';
+import Auth from '../utils/auth';
 
 const SingleProduct = () => {
+  const loggedStatus = Auth.loggedIn();
 
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
   const [removeProduct] = useMutation(REMOVE_PRODUCT);
@@ -154,17 +156,17 @@ const SingleProduct = () => {
               value={formState.category}
             />
           </Form.Group>
-          <Button
+          {loggedStatus && <Button
             as='input'
             className='my-3'
             type='submit'
-            value='Update Item' />
-          <Button
+            value='Update Item' />}
+          {loggedStatus && <Button
             as='input'
             className='my-3'
             type='submit'
             value='Delete Item'
-            onClick={() => handleDelete()} />
+            onClick={() => handleDelete()} />}
         </Form>
       </Container>
     );
