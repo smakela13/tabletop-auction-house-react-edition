@@ -50,7 +50,10 @@ const naturalEyeColors = [
 	'Grey-Blue',
 	'Grey-Green',
 	'Amber',
-	'Violet'
+	'Violet',
+	'Red',
+	'White',
+	'Black'
 ];
 
 const Shopkeeper = () => {
@@ -71,13 +74,13 @@ const Shopkeeper = () => {
 		firstName: Faker.name.firstName(),
 		lastName: Faker.name.lastName(),
 		eyeColor: useNaturalColors(true, naturalEyeColors),
-		hairColor: useNaturalColors(true, naturalHairColors), 
+		hairColor: useNaturalColors(false, naturalHairColors), 
 	};
 
 	return (
 		<>
-			<Card style={{color: '#000', width: '40em', alignSelf: 'center', backgroundColor: '#758084', padding: '5px'}}>
-				<h3>Generate a Random Shopkeeper!</h3>
+			<Card style={{color: '#E8E8E8', width: '40em', alignSelf: 'center', backgroundColor: '#145374', padding: '5px'}}>
+				<h3 style={{marginBottom: '10px'}}>Generate a Random Shopkeeper</h3>
 				<p>{`First Name: ${character.firstName}`}</p>
 				<p>{`Last Name: ${character.lastName}`}</p>
 				<p>{`Hair Color: ${character.hairColor}`}</p>

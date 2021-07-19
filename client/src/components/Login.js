@@ -92,7 +92,7 @@ const Login = () => {
 						type='submit'
 						as='input'
 						value='Log In'
-						style={{ background: '#737373' }}
+						style={{ background: '#9DA5A8' }}
 					/>
 				</Form>
 			</Container>
