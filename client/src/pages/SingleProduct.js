@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/client'
 // Import the `useParams()` hook from React Router
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { Container, Button, ListGroup, ListGroupItem, CardGroup, Card, Form } from "react-bootstrap";
+import { Container, Button, Form } from "react-bootstrap";
 import { QUERY_SINGLE_PRODUCT } from '../utils/queries';
 import { UPDATE_PRODUCT } from '../utils/mutations';
 import { REMOVE_PRODUCT } from '../utils/mutations';
@@ -35,8 +35,8 @@ const SingleProduct = () => {
   };
 
   // Set up our mutation with an option to handle errors
-  const [updateProduct, { error }] = useMutation(UPDATE_PRODUCT);
-//  Not sure why setting initial values isn't working
+  const [updateProduct, {error}] = useMutation(UPDATE_PRODUCT);
+  
   const [formState, setFormState] = useState({
     productName: product.productName,
     price: product.price,
@@ -44,7 +44,6 @@ const SingleProduct = () => {
     description: product.description,
     category: product.category,
   });
-  // const [characterCount, setCharacterCount] = useState(0);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -96,7 +95,6 @@ const SingleProduct = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setFormState({
       ...formState,
       [name]: value,
@@ -122,7 +120,6 @@ const SingleProduct = () => {
           <Form.Group>
             <Form.Label htmlFor='description'>Description:</Form.Label>
             <Form.Control
-
               type='textarea'
               name='description'
               placeholder={product.description}
