@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client'
 // Import the `useParams()` hook from React Router
@@ -7,7 +8,6 @@ import { Container, Button, Form } from "react-bootstrap";
 import { QUERY_SINGLE_PRODUCT } from '../utils/queries';
 import { UPDATE_PRODUCT } from '../utils/mutations';
 import { REMOVE_PRODUCT } from '../utils/mutations';
-import Auth from '../utils/auth';
 
 const SingleProduct = () => {
 
@@ -15,26 +15,23 @@ const SingleProduct = () => {
   const [removeProduct] = useMutation(REMOVE_PRODUCT);
   const { productId } = useParams();
 
-  const { loading, data } = useQuery(QUERY_SINGLE_PRODUCT, {
+  const { data } = useQuery(QUERY_SINGLE_PRODUCT, {
     // Pass the `productId` URL parameter into query to retrieve this product's data
     variables: { productId: productId },
   });
   const product = data?.product || {};
 
   const handleDelete = async () => {
-    // const token = Auth.loggedIn() ? Auth.getToken() : null;
     await removeProduct({
       variables: {
         _id: product._id
       }
     })
-    // if (!token) {
-    //   return false;
-    // }
     document.location.replace('/');
   };
 
   // Set up our mutation with an option to handle errors
+  // eslint-disable-next-line
   const [updateProduct, {error}] = useMutation(UPDATE_PRODUCT);
   
   const [formState, setFormState] = useState({
@@ -47,7 +44,6 @@ const SingleProduct = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // destructure state
 
     if (formState.productName == undefined) {
       formState.productName = product.productName;
@@ -83,12 +79,13 @@ const SingleProduct = () => {
     };
     // On form submit, perform mutation and pass in form data object as arguments
     try {
-      const { data } = updateProduct({
-        variables: { ...buildInput, _id: product._id },
-      });
+			// eslint-disable-next-line
+			const { data } = updateProduct({
+				variables: { ...buildInput, _id: product._id },
+			});
 
-      document.location.replace('/');
-    } catch (err) {
+			document.location.replace('/');
+		} catch (err) {
       console.error(err);
     }
   };

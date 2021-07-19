@@ -7,7 +7,8 @@ import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
 
 const AddItem = () => {
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const {data} = useQuery(QUERY_PRODUCTS);
+  // eslint-disable-next-line
   const products = data?.products || [];
 
   return (
