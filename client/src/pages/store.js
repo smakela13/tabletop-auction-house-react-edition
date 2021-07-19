@@ -10,7 +10,7 @@ const Product = () => {
   
     return (
       <Container>
-        <ProductList products={products}/>
+        <ProductList id='main' products={products}/>
       </Container>
     );
   };

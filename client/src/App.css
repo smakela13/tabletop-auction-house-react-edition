@@ -68,6 +68,10 @@ input[type="submit"]:active {
   opacity: 0.8;
 }
 
+a {
+  color: #fff;
+}
+
 a.card-link {
   color: #000;
   font-weight: bold;

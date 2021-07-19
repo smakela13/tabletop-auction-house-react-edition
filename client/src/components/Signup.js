@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, Button, Alert, Container } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
@@ -48,6 +48,7 @@ const Signup = () => {
 
   return (
     <>
+      <Container>
       {/* This is needed for the validation functionality above */}
       <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
         {/* show alert if server response is bad */}
@@ -56,10 +57,9 @@ const Signup = () => {
         </Alert>
 
         <Form.Group>
-          <Form.Label htmlFor='username'>Username</Form.Label>
+          <Form.Label htmlFor='username'>Username:</Form.Label>
           <Form.Control
             type='text'
-            placeholder='Your username'
             name='username'
             onChange={handleInputChange}
             value={userFormData.username}
@@ -69,10 +69,9 @@ const Signup = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='email'>Email</Form.Label>
+          <Form.Label htmlFor='email'>Email:</Form.Label>
           <Form.Control
             type='email'
-            placeholder='Your email address'
             name='email'
             onChange={handleInputChange}
             value={userFormData.email}
@@ -82,10 +81,9 @@ const Signup = () => {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label htmlFor='password'>Password</Form.Label>
+          <Form.Label htmlFor='password'>Password:</Form.Label>
           <Form.Control
             type='password'
-            placeholder='Your password'
             name='password'
             onChange={handleInputChange}
             value={userFormData.password}
@@ -96,10 +94,12 @@ const Signup = () => {
         <Button
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}
           type='submit'
-          variant='success'>
-          Submit
-        </Button>
+          as='input'
+          value='Sign Up'
+          style={{background: '#737373'}}
+        />
       </Form>
+      </Container>
     </>
   );
 };

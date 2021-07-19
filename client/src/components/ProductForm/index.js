@@ -13,6 +13,7 @@ const ProductForm = () => {
   });
 
   // Set up our mutation with an option to handle errors
+  // eslint-disable-next-line
   const [addProduct, { error }] = useMutation(ADD_PRODUCT);
 
   const handleFormSubmit = async (event) => {
@@ -21,6 +22,7 @@ const ProductForm = () => {
     // On form submit, perform mutation and pass in form data object as arguments
     // It is important that the object fields are match the defined parameters in `ADD_PRODUCT` mutation
     try {
+      // eslint-disable-next-line
       const { data } = addProduct({
         variables: { ...formState },
       });

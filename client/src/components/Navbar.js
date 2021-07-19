@@ -42,6 +42,7 @@ const Navigation = () => {
 						{loggedStatus && <Nav.Link style={{color: 'white'}} onClick={Auth.logout}>Logout</Nav.Link>}
 						{!loggedStatus && <Nav.Link style={{color: 'white'}} href='/signup'>Sign Up</Nav.Link>}
 						{!loggedStatus && <Nav.Link style={{color: 'white'}} href='/login'>Log In</Nav.Link>}
+						<a className='skip-link' href='#main' hidden>Skip to main content</a>
 					</Nav>
 				</Navbar.Collapse>
 			</Navbar>
