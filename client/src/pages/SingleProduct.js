@@ -14,8 +14,8 @@ const SingleProduct = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
   const [removeProduct] = useMutation(REMOVE_PRODUCT);
   const { productId } = useParams();
-
-  const { data } = useQuery(QUERY_SINGLE_PRODUCT, {
+  // eslint-disable-next-line
+  const { loading, data } = useQuery(QUERY_SINGLE_PRODUCT, {
     // Pass the `productId` URL parameter into query to retrieve this product's data
     variables: { productId: productId },
   });

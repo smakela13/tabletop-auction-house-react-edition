@@ -5,7 +5,8 @@ import {  useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../utils/queries';
 
 const Product = () => {
-    const { data } = useQuery(QUERY_PRODUCTS);
+  // eslint-disable-next-line
+    const { loading, data } = useQuery(QUERY_PRODUCTS);
     const products = data?.products || [];
   
     return (
