@@ -23,7 +23,7 @@ const Navigation = () => {
 				style={{ backgroundColor: '#373737' }}>
 				<Navbar.Brand
 					className='header-nav px-3'
-					style={{ fontSize: '35px', fontFamily: 'Roboto', cursor: 'pointer' }}>
+					style={{ fontSize: '35px', fontFamily: 'Fjalla One, sans-serif', cursor: 'pointer' }}>
 					Welcome{loggedStatus && <span onClick={() => document.location.replace('/profile')}>,	{Auth.getProfile().data.username}
 					</span>}
 				</Navbar.Brand>
@@ -32,8 +32,8 @@ const Navigation = () => {
 					<Nav
 						className='ms-auto px-3'
 						style={{
-							fontSize: '22px',
-							fontFamily: 'Roboto'
+							fontSize: '24px',
+							fontFamily: 'Fjalla One'
 						}}>
 						<Nav.Link style={{color: 'white'}} href='/'>Home</Nav.Link>
 						<Nav.Link style={{color: 'white'}} href='/addItem'>Add Item</Nav.Link>
