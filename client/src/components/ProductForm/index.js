@@ -85,7 +85,7 @@ const ProductForm = () => {
             required
           />
         <Form.Group>
-          <Form.Label htmlFor='category'>Category</Form.Label>
+          <Form.Label htmlFor='category'>Category:</Form.Label>
           <Form.Control
             type='textarea'
             name='category'

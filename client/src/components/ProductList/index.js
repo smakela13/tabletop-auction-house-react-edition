@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardGroup, Card, ListGroup, Container, ListGroupItem } from 'react-bootstrap';
+import { ListGroup, Container } from 'react-bootstrap';
 
 const ProductList = ({ products, title }) => {
   if (!products) {
@@ -9,28 +9,13 @@ const ProductList = ({ products, title }) => {
     <Container className='row'>
       <h3>{title}</h3>
       {products && products.map((product) => (
-        <CardGroup  style={{width: '18em', marginBottom: '.25em'}} onClick={() => document.location.replace(`/${product._id}`)} key={product._id} >
-        <Card style={{backgroundColor: '#758084', padding:'5px', boxShadow: '2px 5px 5px black'}}>
-          {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
-            <Card.Body style={{
-              textAlign: 'center',
-              padding: '1em 1em',
-              marginBottom: '1em',
-              color: '#000'}}>
-            <Card.Link
-							id={product.productId}
-							style={{ fontWeight: 'bold' }}>
-							{product.productName}
-						</Card.Link>
-            <ListGroup>
-              <ListGroupItem style={{backgroundColor: '#828d90'}} id={product.productId}>Description<br />{product.description}</ListGroupItem>
-              <ListGroupItem style={{backgroundColor: '#828d90'}} id={product.productId}>Price<br />{product.price}</ListGroupItem>
-                <ListGroupItem style={{backgroundColor: '#828d90'}} id={product.productId}>Stock<br />{product.stock}</ListGroupItem>
-                <ListGroup.Item style={{backgroundColor: '#828d90'}} id={product.productId}>Category:<br />{product.category}</ListGroup.Item>
-            </ListGroup>
-            </Card.Body>
-        </Card>
-      </CardGroup>
+        <ListGroup style={{width: '40em', marginBottom: '.25em'}} onClick={() => document.location.replace(`/${product._id}`)} key={product._id} horizontal>
+          <ListGroup.Item style={{backgroundColor: '#B0B0B0', fontWeight: 'bold'}} id={product.productId}>{product.productName}</ListGroup.Item>
+          <ListGroup.Item style={{backgroundColor: '#B0B0B0'}} id={product.productId}>{product.description}</ListGroup.Item>
+          <ListGroup.Item style={{backgroundColor: '#B0B0B0'}} id={product.productId}>Price<br />{product.price}</ListGroup.Item>
+          <ListGroup.Item style={{backgroundColor: '#B0B0B0'}} id={product.productId}>Stock<br />{product.stock}</ListGroup.Item>
+          <ListGroup.Item style={{backgroundColor: '#B0B0B0'}} id={product.productId}>Category:<br />{product.category}</ListGroup.Item>
+        </ListGroup>
       ))}
     </Container>
   );

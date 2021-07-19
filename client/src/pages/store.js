@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductList from '../components/ProductList';
-import { Container } from "react-bootstrap";
+import { Container, ListGroup } from "react-bootstrap";
 import {  useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../utils/queries';
 
