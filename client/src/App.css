@@ -2,7 +2,7 @@
 .impDiv{
   display: flex;
   flex-direction: column;
-  background: #4b4b4b;
+  background: #5588A3;
   height: 100vh;
   font-family: 'Roboto', Verdana, Tahoma, sans-serif;
   color: #fff;
@@ -46,7 +46,7 @@ label {
 }
 
 input[type="submit"] {
-  background: #737373;
+  background: #9DA5A8;
   text-transform: uppercase;
   border: none;
   margin-top: 20px;
@@ -57,7 +57,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background: #9DA5A8;
+  background: #B0B0B0;
 }
 
 input[type="button"]:active,
@@ -66,6 +66,10 @@ input[type="submit"]:active {
   transform: translateY(3px);
   border: 1px solid transparent;
   opacity: 0.8;
+}
+
+a {
+  color: #fff;
 }
 
 a.card-link {

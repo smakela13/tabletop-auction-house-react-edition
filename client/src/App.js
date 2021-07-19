@@ -8,7 +8,6 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navigation from './components/Navbar';
-// import Store from './pages/store';
 import Product from './pages/store';
 import Shopkeeper from './components/Shopkeeper';
 import AddItem from './pages/addItem';

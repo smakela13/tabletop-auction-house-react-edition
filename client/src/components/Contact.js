@@ -45,7 +45,7 @@ const Contact = () => {
 				/>
 				<label>Message:</label>
 				<textarea type='text' name='message' maxLength='2500' required />
-				<input type='submit' value='Send' />
+				<input type='submit' value='Send' style={{color: '#fff'}} />
 			</form>
 		</>
 	);
