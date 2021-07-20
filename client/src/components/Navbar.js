@@ -41,7 +41,7 @@ const Navigation = () => {
 					<Nav
 						className='ms-auto px-3'
 						style={{
-							fontSize: '24px',
+							fontSize: '30px',
 							fontFamily: 'Fjalla One',
 						}}>
 						<Nav.Link style={{ color: 'white' }} href='/'>
