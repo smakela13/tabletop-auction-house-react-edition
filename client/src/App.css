@@ -92,3 +92,9 @@ h3 {
 p {
   margin-left: 15px;
 }
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  text-align: center;
+}
