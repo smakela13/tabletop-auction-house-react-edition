@@ -122,7 +122,7 @@ input[type="submit"]:active {
 .theme-dark {
   --dark-text: #E8E8E8;
   --light-text: #E8E8E8;  
-  --dark-background: #29465b;
+  --dark-background: #0c151c;
   --light-background: #586F7C;
   --accent: #B8DBD9;
   --button-border: #B8DBD9;
