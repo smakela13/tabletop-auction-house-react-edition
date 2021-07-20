@@ -4,7 +4,7 @@
 
 *Our goal is to create an auction house interface for roleplaying game masters and players to buy, sell, and trade in-game items for fun and profit.*
 
-Tabletop Auction House provides a marketplace for gamers and game masters to create and exchange in-game equipment, both reducing the creative pressure on the gm and establishing a unique channel by which games might grow and evolve.
+Tabletop Auction House provides a marketplace for gamers and game masters to create and exchange in-game equipment, both reducing the creative pressure on the game master and establishing a unique channel by which games might grow and evolve.
 
 Sometimes you don’t want to have to think about the ‘simple’ things when it comes to world-building. Our marketplace takes some of that pressure off while also creating a way to advance the story to whatever depth is desired by the team.
 
