@@ -20,7 +20,7 @@ As a gamer, you can:
 
 Visit the Tabletop Auction House today for your roleplaying marketplace needs.
 
-Tabletop Auction House uses JavaScript, React.js, Node.js, Express.js, MongoDB, Mongoose ODM, GraphQL, JSON Web Tokens, Apollo, and Heroku with PWA functionality. More technologies that we would like to add in the future include Cloudinary and RPG-Awesome.
+Tabletop Auction House uses JavaScript, React.js, Node.js, Express.js, MongoDB, Mongoose ODM, GraphQL, JSON Web Tokens, Apollo, Faker.js, and Heroku with PWA functionality. More technologies that we would like to add in the future include Cloudinary and RPG-Awesome.
 
 ## Table of Contents
 
@@ -37,26 +37,34 @@ To install the application's dependencies, type the following:
 ```md
 npm install
 ```
+Host the application on MongoDB.
+
+To run the application locally, type the following:
+```md
+npm run develop
+```
 
 ## Usage
 
-![Tabletop Auction House]()
+![Tabletop Auction House](./assets/sign-up.png)
 
 A user can use the sign-up page to create their account. They will be directed to the shop page afterward.
 
-![Tabletop Auction House]()
+![Tabletop Auction House](./assets/shop.png)
 
-The shop page displays all of the products. The user can click on the Add Item page, View, and Delete buttons, or they can choose to log out.
+The shop page displays all of the products. The user can click on the Add Item page, Shopkeeper, Contact, a product's name, or they can choose to log out.
 
-![Tabletop Auction House]()
+![Tabletop Auction House](./assets/add-item.png)
 
-The user can add an item by entering the Item Name, Price, Quantity, and Category and clicking Save Item.
+The user can add an item by entering the Item Name, Price, Quantity, and Category and clicking Add Item.
 
-![Tabletop Auction House]()
+![Tabletop Auction House](./assets/edit-item.png)
 
-The user can also view an item and see the Item Name, Price, Quantity, and Category. They can delete the item on this page, if they wish.
+The user can also view an item and see the Item Name, Price, Quantity, and Category. They can edit or delete the item on this page, if they wish.
 
-![Tabletop Auction House]()
+![Tabletop Auction House](./assets/shopkeeper.png)
+
+The user can generate random shopkeepers with different traits.
 
 Navigate to [Tabletop Auction House 2.0](https://tabletop-auction-house-2.herokuapp.com/) and view the web page.
 
@@ -76,4 +84,4 @@ Tabletop Auction House is a coding project done by the Prosperous Merchants. The
 
 ## License
 
-This application is licensed under MIT License. Click the badge for more information on how you can use this project.
+This website has No License, which means it is under exclusive copyright. No one can copy, distribute, or modify this website without permission.

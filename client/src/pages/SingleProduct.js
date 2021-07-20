@@ -158,11 +158,13 @@ const SingleProduct = () => {
           <Button
             as='input'
             className='my-3'
+            style={{ background: '#9DA5A8' }}
             type='submit'
             value='Update Item' />
           <Button
             as='input'
             className='my-3'
+            style={{ background: '#9DA5A8' }}
             type='submit'
             value='Delete Item'
             onClick={() => handleDelete()} />
