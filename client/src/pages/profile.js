@@ -8,11 +8,12 @@ const Profile = () => {
         document.location.replace("/login")
     }
     else {
-        return (
-            <>
-            Under construction! Hypothetically, here's a list of products you've purchased.
-            </>
-        );
+        document.location.replace("/")
+        // return (
+        //     <>
+        //     Under construction! Hypothetically, here's a list of products you've purchased.
+        //     </>
+        // );
     }
 }
 
