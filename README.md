@@ -12,15 +12,17 @@ As a game master, you can:
 
 * Display ordinary items for players to purchase
 * Introduce items that affect the narrative and move the party in new ways through their environment
+* Keep track of your players' items much easier
 
 As a gamer, you can:
 
 * See gear standards for your game
 * Grab cool items for your character
+* Purchase and track your items in a paper-free format
 
 Visit the Tabletop Auction House today for your roleplaying marketplace needs.
 
-Tabletop Auction House uses JavaScript, React.js, Node.js, Express.js, MongoDB, Mongoose ODM, GraphQL, JSON Web Tokens, Apollo, Faker.js, and Heroku with PWA functionality. More technologies that we would like to add in the future include Cloudinary and RPG-Awesome.
+Tabletop Auction House uses JavaScript, React.js, Node.js, Express.js, MongoDB, Mongoose ODM, GraphQL, JSON Web Tokens, Apollo GraphQL, Faker.js, CSS-in-JS, React-Bootstrap, and Heroku with installable PWA functionality. More technologies that we would like to add in the future include Cloudinary and RPG-Awesome.
 
 ## Table of Contents
 

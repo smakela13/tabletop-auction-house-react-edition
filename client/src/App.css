@@ -2,20 +2,53 @@
 .impDiv{
   display: flex;
   flex-direction: column;
-  /* background: #5588A3; */
   height: 100vh;
   font-family: 'Roboto', Verdana, Tahoma, sans-serif;
-  /* color: #fff; */
   background-color: var(--dark-background);
   color: var(--dark-text);
 }
 
-html {
-    background-color: #5588A3;
-    height: 100%;
+html, #root {
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+  height: 100%;
 }
 
-/* Contact */
+nav {
+  background-color: var(--dark-background);
+  color: var(--light-text);
+}
+
+.main {
+  background-color: var(--light-background);
+}
+
+a {
+  color: #fff;
+}
+
+a.card-link {
+  color: #000;
+  font-weight: bold;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+a.card-link:hover {
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+h3 {
+  margin-left: 15px;
+}
+
+p {
+  margin-left: 15px;
+}
+
+/* Forms */
 form {
   max-width: 500px;
   margin: 0 auto;
@@ -77,31 +110,6 @@ input[type="submit"]:active {
   opacity: 0.8;
 }
 
-a {
-  color: #fff;
-}
-
-a.card-link {
-  color: #000;
-  font-weight: bold;
-  font-size: 1.3em;
-  cursor: pointer;
-}
-
-a.card-link:hover {
-  color: #000;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-h3 {
-  margin-left: 15px;
-}
-
-p {
-  margin-left: 15px;
-}
-
 /* Footer */
 .footer {
   margin-top: auto;
@@ -109,34 +117,22 @@ p {
   background-color: var(--dark-background);
   color: var(--light-text);
 }
+
+/* Light and Dark Mode */
 .theme-dark {
-  --dark-text: #292929;
-  --light-text: #F9F8F8;  
-  --dark-background: #2F4550;
+  --dark-text: #E8E8E8;
+  --light-text: #E8E8E8;  
+  --dark-background: #29465b;
   --light-background: #586F7C;
   --accent: #B8DBD9;
   --button-border: #B8DBD9;
 }
 
 .theme-light {
-  --dark-text: #5E4B56;
-  --light-text: #5E4B56;
-  --dark-background: #DBE7E4;
+  --dark-text: #000;
+  --light-text: #000;
+  --dark-background: #5588A3;
   --light-background: #EDDCD2;
   --accent: #DBE7E4;
   --button-border: #5E4B56;
-}
-
-html, #root {
-  background-color: var(--dark-background);
-  color: var(--dark-text);
-}
-
-nav {
-  background-color: var(--dark-background);
-  color: var(--light-text);
-}
-
-.main {
-  background-color: var(--light-background);
 }
