@@ -15,7 +15,7 @@ const ProductList = ({ products, title }) => {
   return (
     <Container className='row'>
       <h3>{title}</h3>
-      <ListGroup style={{marginBottom: '.2em', minHeight: '2.5em', fontSize: '20px'}} horizontal>
+      <ListGroup id="homeHeader" style={{marginBottom: '.2em', minHeight: '2.5em'}} horizontal>
         <ListGroup.Item className='col-2' style={{backgroundColor: '#B0B0B0', fontWeight: 'bold'}}>Name</ListGroup.Item>
         <ListGroup.Item className='col-6' style={{backgroundColor: '#B0B0B0', fontWeight: 'bold'}}>Description</ListGroup.Item>
         <ListGroup.Item className='col-1' style={{backgroundColor: '#B0B0B0', fontWeight: 'bold'}}>Price</ListGroup.Item>
@@ -23,7 +23,7 @@ const ProductList = ({ products, title }) => {
         <ListGroup.Item className='col-2' style={{backgroundColor: '#B0B0B0', fontWeight: 'bold'}}>Category</ListGroup.Item>
       </ListGroup>
       {products && products.map((product) => (
-        <ListGroup style={{minHeight: '3.5em', marginBottom: '.25em'}} onClick={() => goToSingleItem(product._id)} key={product._id} horizontal>
+        <ListGroup id="homeItems" style={{minHeight: '3.5em', marginBottom: '.25em'}} onClick={() => goToSingleItem(product._id)} key={product._id} horizontal>
           <ListGroup.Item className='col-2' style={{backgroundColor: '#B0B0B0', textDecoration: 'underline', cursor: 'pointer'}} id={product.productId}>{product.productName}</ListGroup.Item>
           <ListGroup.Item className='col-6' style={{backgroundColor: '#B0B0B0'}} id={product.productId}>{product.description}</ListGroup.Item>
           <ListGroup.Item className='col-1' style={{backgroundColor: '#B0B0B0'}} id={product.productId}>{product.price}</ListGroup.Item>

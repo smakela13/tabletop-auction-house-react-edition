@@ -32,7 +32,6 @@ const Contact = () => {
 		<>
 			<form
 				className='contact-form'
-				style={{ width: '500px' }}
 				onSubmit={sendEmail}>
 				<label>Name:</label>
 				<input type='text' name='from_name' required />

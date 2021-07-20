@@ -136,3 +136,42 @@ input[type="submit"]:active {
   --accent: #DBE7E4;
   --button-border: #5E4B56;
 }
+
+.copyCatCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  width: 40em;
+}
+
+.contact-form {
+  width: 500px;
+}
+
+#homeHeader {
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 540px) {
+  .copyCatCard {
+    width: 100%;
+  }
+
+  .contact-form {
+    width: 280px;
+  }
+
+  #homeHeader {
+    font-size: 5px;
+  }
+
+  #homeItems {
+    font-size: 5px;
+  }
+}
