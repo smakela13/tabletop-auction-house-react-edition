@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar, Nav, Image } from 'react-bootstrap';
 import Auth from '../utils/auth';
 import '../App.css';
+import Toggle from './Toggle';
 
 const Navigation = () => {
 	const loggedStatus = Auth.loggedIn();
@@ -35,6 +36,7 @@ const Navigation = () => {
 							fontSize: '24px',
 							fontFamily: 'Fjalla One'
 						}}>
+						<Toggle />
 						<Nav.Link style={{color: 'white'}} href='/'>Home</Nav.Link>
 						{loggedStatus && <Nav.Link style={{color: 'white'}} href='/addItem'>Add Item</Nav.Link>}
 						<Nav.Link style={{color: 'white'}} href='/shopkeeper'>Shopkeeper</Nav.Link>

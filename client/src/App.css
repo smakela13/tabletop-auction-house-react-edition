@@ -2,16 +2,20 @@
 .impDiv{
   display: flex;
   flex-direction: column;
-  background: #5588A3;
+  /* background: #5588A3; */
   height: 100vh;
   font-family: 'Roboto', Verdana, Tahoma, sans-serif;
-  color: #fff;
+  /* color: #fff; */
+  background-color: var(--dark-background);
+  color: var(--dark-text);
 }
 
 /* Contact */
 form {
   max-width: 500px;
   margin: 0 auto;
+  background-color: var(--dark-background);
+  color: var(--dark-text);
 }
 
 input {
@@ -97,4 +101,37 @@ p {
 .footer {
   margin-top: auto;
   text-align: center;
+  background-color: var(--dark-background);
+  color: var(--light-text);
+}
+.theme-dark {
+  --dark-text: #292929;
+  --light-text: #F9F8F8;  
+  --dark-background: #2F4550;
+  --light-background: #586F7C;
+  --accent: #B8DBD9;
+  --button-border: #B8DBD9;
+}
+
+.theme-light {
+  --dark-text: #5E4B56;
+  --light-text: #5E4B56;
+  --dark-background: #DBE7E4;
+  --light-background: #EDDCD2;
+  --accent: #DBE7E4;
+  --button-border: #5E4B56;
+}
+
+html, #root {
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+}
+
+nav {
+  background-color: var(--dark-background);
+  color: var(--light-text);
+}
+
+.main {
+  background-color: var(--light-background);
 }
