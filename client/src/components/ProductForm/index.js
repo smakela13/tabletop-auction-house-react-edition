@@ -62,6 +62,7 @@ const ProductForm = () => {
             name='description'
             onChange={handleChange}
             value={formState.description}
+            maxLength='65'
             required
           />
         </Form.Group>

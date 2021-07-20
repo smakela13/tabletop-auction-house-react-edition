@@ -15,6 +15,7 @@ import Contact from './components/Contact';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Profile from './pages/profile';
+import Footer from './components/Footer';
 import SingleProduct from './pages/SingleProduct';
 
 const httpLink = createHttpLink({
@@ -70,8 +71,8 @@ export default function App() {
 					<Route exact path='/:productId'>
 						<SingleProduct />
 					</Route>
+					<Footer />
 				</div>
-				{/* <Footer /> */}
 			</Router>
 		</ApolloProvider>
 	);
