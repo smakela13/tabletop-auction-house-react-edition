@@ -84,7 +84,10 @@ const SingleProduct = () => {
 				variables: { ...buildInput, _id: product._id },
 			});
 
-			document.location.replace('/');
+      function goToHome() {
+        document.location.replace('/');
+      }
+      setTimeout(goToHome, 150);
 		} catch (err) {
       console.error(err);
     }
