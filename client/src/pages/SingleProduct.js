@@ -1,14 +1,13 @@
 /* eslint-disable eqeqeq */
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client'
-import { REMOVE_PRODUCT } from '../utils/mutations';
 // Import the `useParams()` hook from React Router
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import { Container, Button, Form } from "react-bootstrap";
 import { QUERY_SINGLE_PRODUCT } from '../utils/queries';
 import { UPDATE_PRODUCT } from '../utils/mutations';
-import { Container, Button, Form } from "react-bootstrap";
-import Auth from '../utils/auth';
+import { REMOVE_PRODUCT } from '../utils/mutations';
 
 const SingleProduct = () => {
 
@@ -85,7 +84,10 @@ const SingleProduct = () => {
 				variables: { ...buildInput, _id: product._id },
 			});
 
-			document.location.replace('/');
+      function goToHome() {
+        document.location.replace('/');
+      }
+      setTimeout(goToHome, 150);
 		} catch (err) {
       console.error(err);
     }
@@ -101,7 +103,7 @@ const SingleProduct = () => {
 
   const url = `${document.location}`;
 
-  if (url.endsWith(product._id) && Auth.loggedIn()) {
+  if (url.endsWith(product._id)) {
     return (
       <Container>
         <Form onSubmit={handleFormSubmit}>
@@ -172,9 +174,6 @@ const SingleProduct = () => {
         </Form>
       </Container>
     );
-  }
-  else if (url.endsWith(product._id) && !Auth.loggedIn()) {
-    document.location.replace("/login");
   }
   else {return (<></>)}
 };
