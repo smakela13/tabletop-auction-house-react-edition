@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
 	ApolloClient,
 	InMemoryCache,
@@ -17,6 +17,7 @@ import Signup from './components/Signup';
 import Profile from './pages/profile';
 import Footer from './components/Footer';
 import SingleProduct from './pages/SingleProduct';
+import { keepTheme } from './components/themes';
 
 const httpLink = createHttpLink({
 	uri: '/graphql',
@@ -41,6 +42,9 @@ const client = new ApolloClient({
 });
 
 export default function App() {
+	useEffect(() => {
+		keepTheme();
+	})
 	return (
 		<ApolloProvider client={client}>
 			<Router>
