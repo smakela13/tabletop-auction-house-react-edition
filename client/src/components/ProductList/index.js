@@ -1,7 +1,14 @@
 import React from 'react';
 import { ListGroup, Container } from 'react-bootstrap';
+import Auth from '../../utils/auth';
 
 const ProductList = ({ products, title }) => {
+  function goToSingleItem(productId) {
+    if (Auth.loggedIn()) {
+      document.location.replace(`/${productId}`);
+    }
+  }
+
   if (!products) {
     return <h3>No Products Yet</h3>;
   }
