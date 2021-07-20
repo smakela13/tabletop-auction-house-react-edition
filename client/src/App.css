@@ -4,8 +4,13 @@
   flex-direction: column;
   background: #5588A3;
   height: 100vh;
-  font-family: 'Roboto', Verdana, Tahoma, sans-serif;
+  font-family: 'Montserrat', Verdana, Tahoma, sans-serif;
   color: #fff;
+}
+
+html {
+    background-color: #5588A3;
+    height: 100%;
 }
 
 /* Contact */
@@ -21,7 +26,7 @@ input {
   border: 1px solid black;
   padding: 10px 15px;
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 textarea {
