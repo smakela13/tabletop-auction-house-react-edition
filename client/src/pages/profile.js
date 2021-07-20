@@ -10,7 +10,7 @@ const Profile = () => {
     else {
         return (
             <>
-            Hello. Hypothetically, here's a list of products you've purchased.
+            Under construction! Hypothetically, here's a list of products you've purchased.
             </>
         );
     }
