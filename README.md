@@ -4,7 +4,7 @@
 
 *Our goal is to create an auction house interface for roleplaying game masters and players to buy, sell, and trade in-game items for fun and profit.*
 
-Tabletop Auction House provides a marketplace for gamers and game masters to create and exchange in-game equipment, both reducing the creative pressure on the gm and establishing a unique channel by which games might grow and evolve.
+Tabletop Auction House provides a marketplace for gamers and game masters to create and exchange in-game equipment, both reducing the creative pressure on the game master and establishing a unique channel by which games might grow and evolve.
 
 Sometimes you don’t want to have to think about the ‘simple’ things when it comes to world-building. Our marketplace takes some of that pressure off while also creating a way to advance the story to whatever depth is desired by the team.
 
@@ -12,15 +12,17 @@ As a game master, you can:
 
 * Display ordinary items for players to purchase
 * Introduce items that affect the narrative and move the party in new ways through their environment
+* Keep track of your players' items much easier
 
 As a gamer, you can:
 
 * See gear standards for your game
 * Grab cool items for your character
+* Purchase and track your items in a paper-free format
 
 Visit the Tabletop Auction House today for your roleplaying marketplace needs.
 
-Tabletop Auction House uses JavaScript, React.js, Node.js, Express.js, MongoDB, Mongoose ODM, GraphQL, JSON Web Tokens, Apollo, Faker.js, and Heroku with PWA functionality. More technologies that we would like to add in the future include Cloudinary and RPG-Awesome.
+Tabletop Auction House uses JavaScript, React.js, Node.js, Express.js, MongoDB, Mongoose ODM, GraphQL, JSON Web Tokens, Apollo GraphQL, Faker.js, CSS-in-JS, React-Bootstrap, and Heroku with installable PWA functionality. More technologies that we would like to add in the future include Cloudinary and RPG-Awesome.
 
 ## Table of Contents
 
