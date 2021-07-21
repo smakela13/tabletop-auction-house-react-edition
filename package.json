@@ -8,8 +8,7 @@
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "build": "cd client && npm run build",
-    "build:env": "node scripts/generateClientEnv.js DIR='./public'"
+    "build": "cd client && npm run build"
   },
   "author": "",
   "license": "ISC",
