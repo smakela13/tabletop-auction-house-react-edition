@@ -54,18 +54,6 @@ const resolvers = {
     addProduct: async (parent, { productName, price, stock, description, category }) => {
       return Product.create({ productName, price, stock, description, category });
     },
-    addComment: async (parent, { productId, commentText }) => {
-      return Product.findOneAndUpdate(
-        { _id: productId },
-        {
-          $addToSet: { comments: { commentText } },
-        },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
-    },
     // removeProduct: async (parent, { productId }) => {
     //   return Product.findOneAndDelete({ _id: product._id });
     // },
@@ -94,13 +82,6 @@ const resolvers = {
           throw new AuthenticationError('No product was found');
       }
   },
-    removeComment: async (parent, { productId, commentId }) => {
-      return Product.findOneAndUpdate(
-        { _id: productId },
-        { $pull: { comments: { _id: commentId } } },
-        { new: true }
-      );
-    },
   }
 };
 
