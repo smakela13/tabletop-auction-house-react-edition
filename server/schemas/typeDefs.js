@@ -21,19 +21,19 @@ type GM {
     email: String!
 }
 
-type Category {
-    _id: ID!
-    name: String!
-}
-
 type Product {
     _id: ID
     productName: String
     price: String
     stock: String
     description: String
-    category: String!
+    category: Category
     createdAt: String
+}
+
+type Category {
+    _id: ID!
+    name: String!
 }
 
 input UpdateProductInput {
@@ -57,7 +57,7 @@ type Query {
  type Mutation {
     login (email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addProduct(productName: String!, price: String!, stock: String!, description: String!, category: String!): Product
+    addProduct(productName: String!, price: String!, stock: String!, description: String!, category: ID!): Product
     updateProduct(input: UpdateProductInput!): Product
     removeProduct(_id: ID!): Product
 }

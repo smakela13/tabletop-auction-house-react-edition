@@ -5,7 +5,7 @@ const { Product, Category, User } = require('../models');
 db.once('open', async () => {
   await Category.deleteMany();
 
-  const categories = await Category.insertMany([
+  const categories = await Category.create([
     { name: 'Melee Weapon' },
     { name: 'Ranged Weapon' },
     { name: 'Food & Lodging' },
@@ -23,27 +23,27 @@ db.once('open', async () => {
 
   await Product.deleteMany({});
 
-  await Product.insertMany([
+  await Product.create([
     {
       "productName": "Vibroblade (Classic Variant)",
       "description": "A classic weapon lined in cortosis ore from a time where getting into a fight with a lightsaber was an all to real possibility",
       "price": "600",
       "stock": "1",
-      "category": categories[0].name
+      "category": categories[0]._id
     },
     {
       "productName": "E11 Blaster Rifle",
       "description": "Standard issue blaster for the forces of the Galactic Empire",
       "price": "150",
       "stock": "15",
-      "category": categories[1].name 
+      "category": categories[1]._id
     },
     {
       "productName": "Boots of Blinding Speed",
       "description": "Increases movement by 40 feet per turn, but player is blinded",
       "price": "150",
       "stock": "2",
-      "category": categories[9].name 
+      "category": categories[9]._id
     }
   ]);
 

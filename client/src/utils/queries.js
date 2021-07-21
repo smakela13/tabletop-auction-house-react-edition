@@ -39,7 +39,7 @@ export const QUERY_SINGLE_PRODUCT = gql`
 `;
 
 export const QUERY_PRODUCTS_AND_CATEGORIES = gql`
-query categories {
+query productCategories {
   products {
     _id
     productName

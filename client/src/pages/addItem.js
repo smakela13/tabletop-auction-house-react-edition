@@ -10,7 +10,6 @@ const AddItem = () => {
   // eslint-disable-next-line
   const {loading, data} = useQuery(QUERY_PRODUCTS_AND_CATEGORIES);
   // eslint-disable-next-line
-  console.log(data.categories);
   const products = data?.products || [];
   const categories = data?.categories || [];
 

@@ -94,7 +94,7 @@ const ProductForm = ({ products, categories }) => {
           as="select"
         >
           {categories.map((category) => (
-        <option value={category.name}>{category.name}</option>
+        <option value={category._id}>{category.name}</option>
       ))}
         </Form.Control>
       </Form.Group>

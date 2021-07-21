@@ -17,17 +17,15 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-
-    products: async () => {
-      return Product.find().sort({ createdAt: -1 });
+    products: async (parent) => {
+      return Product.find().populate('category').sort({ createdAt: -1 });;
     },
-
-    product: async (parent, { productId }) => {
-      return Product.findOne({ _id: productId });
+    product: async (parent, { _id }) => {
+      return Product.findOne({ _id: _id }).populate('category');
     },
     categories: async () => {
       return await Category.find();
-    },
+    }
   },
 
   Mutation: {
@@ -54,6 +52,7 @@ const resolvers = {
     },
 
     addProduct: async (parent, { productName, price, stock, description, category }) => {
+      console.log(productName, price, stock, description, category);
       return Product.create({ productName, price, stock, description, category });
     },
     // removeProduct: async (parent, { productId }) => {
