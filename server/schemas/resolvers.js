@@ -40,7 +40,6 @@ const resolvers = {
       if (!user) {
         throw new AuthenticationError('No User with this name found!');
       }
-
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
@@ -58,30 +57,30 @@ const resolvers = {
     //   return Product.findOneAndDelete({ _id: product._id });
     // },
     updateProduct: async (parent, { input }, context) => {
-      const { _id  } = input;
+      const { _id } = input;
 
-       const { productName, price,stock, description, category } = input;
+      const { productName, price, stock, description, category } = input;
 
       //  if (context.user) {
-           const product = await Product.findOneAndUpdate({ _id: _id }, { $set: { productName, price, stock, description, category }});
+      const product = await Product.findOneAndUpdate({ _id: _id }, { $set: { productName, price, stock, description, category } });
 
-           return product;
+      return product;
       //  }
       //  throw new AuthenticationError('Not Logged In')
-   },
+    },
 
     removeProduct: async (parent, { _id }, context) => {
       try {
-          // if (context.user) {
-              const product = await Product.deleteOne({ _id: _id });
+        // if (context.user) {
+        const product = await Product.deleteOne({ _id: _id });
 
-              return product;
-          // }
-          // throw new AuthenticationError('Not Logged In')
+        return product;
+        // }
+        // throw new AuthenticationError('Not Logged In')
       } catch (error) {
-          throw new AuthenticationError('No product was found');
+        throw new AuthenticationError('No product was found');
       }
-  },
+    },
   }
 };
 

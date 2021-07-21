@@ -34,10 +34,6 @@ export const ADD_PRODUCT = gql`
       description
       category
       createdAt
-      comments {
-        _id
-        commentText
-      }
     }
   }
 `;
