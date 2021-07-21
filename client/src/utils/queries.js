@@ -11,7 +11,7 @@ query {
 `;
 
 export const QUERY_PRODUCTS = gql`
-  query getProducts {
+  query products {
     products {
       _id
       productName
@@ -36,4 +36,21 @@ export const QUERY_SINGLE_PRODUCT = gql`
       createdAt
     }
   }
+`;
+
+export const QUERY_PRODUCTS_AND_CATEGORIES = gql`
+query categories {
+  products {
+    _id
+    productName
+    price
+    stock
+    description
+    category
+    createdAt
+  }
+  categories {
+    name
+  }
+}
 `;

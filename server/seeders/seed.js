@@ -37,7 +37,7 @@ db.once('open', async () => {
       "price": "150",
       "stock": "15",
       "category": categories[1].name 
-    }
+    },
     {
       "productName": "Boots of Blinding Speed",
       "description": "Increases movement by 40 feet per turn, but player is blinded",

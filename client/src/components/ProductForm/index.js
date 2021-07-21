@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useQuery } from 'react';
 import { useMutation } from '@apollo/client';
-import { Container, Form, Button } from 'react-bootstrap';
+import { Container, Form, Button, Select } from 'react-bootstrap';
 import { ADD_PRODUCT } from '../../utils/mutations';
 
-const ProductForm = () => {
+const ProductForm = ({ products, categories }) => {
+  console.log({ products, categories });
   const [formState, setFormState] = useState({
     productName: '',
     price: '',
     stock: '',
     description: '',
-    category: '',
   });
+
+
 
   // Set up our mutation with an option to handle errors
   // eslint-disable-next-line
@@ -36,7 +38,7 @@ const ProductForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-        setFormState({
+    setFormState({
       ...formState,
       [name]: value,
     });
@@ -85,17 +87,17 @@ const ProductForm = () => {
             value={formState.stock}
             required
           />
-        <Form.Group>
-          <Form.Label htmlFor='category'>Category:</Form.Label>
-          <Form.Control
-            type='textarea'
-            name='category'
-            onChange={handleChange}
-            value={formState.category}
-            required
-          />
-          </Form.Group>
         </Form.Group>
+        <Form.Group controlId="formBasicSelect">
+        <Form.Label>Category</Form.Label>
+        <Form.Control
+          as="select"
+        >
+          {categories.map((category) => (
+        <option value={category.name}>{category.name}</option>
+      ))}
+        </Form.Control>
+      </Form.Group>
         <Button
           as='input'
           className='my-3'

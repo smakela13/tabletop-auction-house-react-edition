@@ -3,9 +3,9 @@ import { ListGroup, Container } from 'react-bootstrap';
 import Auth from '../../utils/auth';
 
 const ProductList = ({ products, title }) => {
-  function goToSingleItem(productId) {
+  function goToSingleItem(_id) {
     if (Auth.loggedIn()) {
-      document.location.replace(`/${productId}`);
+      document.location.replace(`/${_id}`);
     }
   }
 
@@ -24,11 +24,11 @@ const ProductList = ({ products, title }) => {
       </ListGroup>
       {products && products.map((product) => (
         <ListGroup id="homeItems" style={{minHeight: '3.5em', marginBottom: '.25em'}} onClick={() => goToSingleItem(product._id)} key={product._id} horizontal>
-          <ListGroup.Item className='col-2' style={{backgroundColor: '#B0B0B0', textDecoration: 'underline', cursor: 'pointer'}} id={product.productId}>{product.productName}</ListGroup.Item>
-          <ListGroup.Item className='col-6' style={{backgroundColor: '#B0B0B0'}} id={product.productId}>{product.description}</ListGroup.Item>
-          <ListGroup.Item className='col-1' style={{backgroundColor: '#B0B0B0'}} id={product.productId}>{product.price}</ListGroup.Item>
-          <ListGroup.Item className='col-1' style={{backgroundColor: '#B0B0B0'}} id={product.productId}>{product.stock}</ListGroup.Item>
-          <ListGroup.Item className='col-2' style={{backgroundColor: '#B0B0B0'}} id={product.productId}>{product.category}</ListGroup.Item>
+          <ListGroup.Item className='col-2' style={{backgroundColor: '#B0B0B0', textDecoration: 'underline', cursor: 'pointer'}} id={product._id}>{product.productName}</ListGroup.Item>
+          <ListGroup.Item className='col-6' style={{backgroundColor: '#B0B0B0'}} id={product._id}>{product.description}</ListGroup.Item>
+          <ListGroup.Item className='col-1' style={{backgroundColor: '#B0B0B0'}} id={product._id}>{product.price}</ListGroup.Item>
+          <ListGroup.Item className='col-1' style={{backgroundColor: '#B0B0B0'}} id={product._id}>{product.stock}</ListGroup.Item>
+          <ListGroup.Item className='col-2' style={{backgroundColor: '#B0B0B0'}} id={product._id}>{product.category}</ListGroup.Item>
         </ListGroup>
       ))}
     </Container>
