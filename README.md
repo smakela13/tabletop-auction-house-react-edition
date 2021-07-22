@@ -22,7 +22,7 @@ As a gamer, you can:
 
 Visit the Tabletop Auction House today for your roleplaying marketplace needs.
 
-Tabletop Auction House uses JavaScript, React.js, Node.js, Express.js, MongoDB, Mongoose ODM, GraphQL, JSON Web Tokens, Apollo GraphQL, Faker.js, CSS-in-JS, React-Bootstrap, and Heroku with installable PWA functionality. More technologies that we would like to add in the future include Cloudinary and RPG-Awesome.
+Tabletop Auction House uses JavaScript, React.js, Node.js, Express.js, MongoDB, Mongoose ODM, GraphQL, JSON Web Tokens, Apollo GraphQL, Faker.js, EmailJS, CSS-in-JS, React-Bootstrap, and Heroku with installable PWA functionality. More technologies that we would like to add in the future include Cloudinary and RPG-Awesome.
 
 ## Table of Contents
 
@@ -39,7 +39,7 @@ To install the application's dependencies, type the following:
 ```md
 npm install
 ```
-Host the application on MongoDB.
+Host the application with MongoDB Atlas.
 
 To run the application locally, type the following:
 ```md
