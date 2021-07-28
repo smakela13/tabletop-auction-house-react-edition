@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Navbar, Nav, Image } from 'react-bootstrap';
 import Auth from '../utils/auth';
 import '../App.css';
@@ -44,18 +45,18 @@ const Navigation = () => {
 							fontSize: '30px',
 							fontFamily: 'Fjalla One',
 						}}>
-						<Nav.Link style={{ color: 'white' }} href='/'>
+						<Nav.Link style={{ color: 'white' }} as={Link} to='/'>
 							Home
 						</Nav.Link>
 						{loggedStatus && (
-							<Nav.Link style={{ color: 'white' }} href='/addItem'>
+							<Nav.Link style={{ color: 'white' }} as={Link} to='/addItem'>
 								Add Item
 							</Nav.Link>
 						)}
-						<Nav.Link style={{ color: 'white' }} href='/shopkeeper'>
+						<Nav.Link style={{ color: 'white' }} as={Link} to='/shopkeeper'>
 							Shopkeeper
 						</Nav.Link>
-						<Nav.Link style={{ color: 'white' }} href='/contact'>
+						<Nav.Link style={{ color: 'white' }} as={Link} to='/contact'>
 							Contact
 						</Nav.Link>
 						{loggedStatus && (
@@ -64,12 +65,12 @@ const Navigation = () => {
 							</Nav.Link>
 						)}
 						{!loggedStatus && (
-							<Nav.Link style={{ color: 'white' }} href='/signup'>
+							<Nav.Link style={{ color: 'white' }} as={Link} to='/signup'>
 								Sign Up
 							</Nav.Link>
 						)}
 						{!loggedStatus && (
-							<Nav.Link style={{ color: 'white' }} href='/login'>
+							<Nav.Link style={{ color: 'white' }} as={Link} to='/login'>
 								Log In
 							</Nav.Link>
 						)}
