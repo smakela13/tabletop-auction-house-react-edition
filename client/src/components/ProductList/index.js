@@ -1,13 +1,25 @@
 import React from 'react';
 import { ListGroup, Container } from 'react-bootstrap';
+import { useQuery } from '@apollo/client';
 import Auth from '../../utils/auth';
+import { QUERY_SINGLE_CATEGORY } from '../../utils/queries';
 
-const ProductList = ({ products, title }) => {
+const ProductList = ({ products, categories, title }) => {
   function goToSingleItem(_id) {
     if (Auth.loggedIn()) {
       document.location.replace(`/${_id}`);
     }
   }
+
+  const { loading, data } = useQuery(QUERY_SINGLE_CATEGORY);
+  const catData = data?._id || {};
+  console.log(catData);
+  
+  // format category
+  // category find by ID
+  // categories is an array of id's iterate through categories
+  // if product.category === categories.id return categories.label
+
 
   if (!products) {
     return <h3>No Products Yet</h3>;
@@ -28,7 +40,7 @@ const ProductList = ({ products, title }) => {
           <ListGroup.Item className='col-6' style={{backgroundColor: '#B0B0B0'}} id={product._id}>{product.description}</ListGroup.Item>
           <ListGroup.Item className='col-1' style={{backgroundColor: '#B0B0B0'}} id={product._id}>{product.price}</ListGroup.Item>
           <ListGroup.Item className='col-1' style={{backgroundColor: '#B0B0B0'}} id={product._id}>{product.stock}</ListGroup.Item>
-          <ListGroup.Item className='col-2' style={{backgroundColor: '#B0B0B0'}} id={product._id}>{product.category}</ListGroup.Item>
+          <ListGroup.Item className='col-2' style={{backgroundColor: '#B0B0B0'}} id={product._id}>{!product.category._id ? '' : product.category._id}</ListGroup.Item>
         </ListGroup>
       ))}
     </Container>

@@ -1,23 +1,16 @@
 import React from 'react';
-import { useQuery } from '@apollo/client';
 import ProductForm from '../components/ProductForm';
 import { Container } from "react-bootstrap";
-import { QUERY_CATEGORIES, QUERY_PRODUCTS, QUERY_PRODUCTS_AND_CATEGORIES } from '../utils/queries';
 import Auth from "../utils/auth";
 import { Link } from "react-router-dom";
 
 const AddItem = () => {
-  // eslint-disable-next-line
-  const {loading, data} = useQuery(QUERY_PRODUCTS_AND_CATEGORIES);
-  // eslint-disable-next-line
-  const products = data?.products || [];
-  const categories = data?.categories || [];
-
+  
   return (
     <Container>
       {Auth.loggedIn() ? (
         <>
-          <ProductForm products={products} categories={categories}/>
+          <ProductForm />
         </>
       ) : (
         <>

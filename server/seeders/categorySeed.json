@@ -1,32 +1,42 @@
 [
-{
-    "name": "Melee Weapon"
-},
-{
-    "name": "Ranged Weapon"
-},
-{
-    "name": "Food & Lodging"
-},
-{
-    "name": "Clothing"
-},
-{
-    "name": "Adventure Gear/Tools"
-},
-{
-    "name": "Mounts/Riding Gear"
-},
-{
-    "name": "For Your Animals"
-},
-{
-    "name": "Barding"
-},
-{
-    "name": "Special Items"
-},
-{
-    "name": "Miscellaneous"
-}
-]
+    {
+      "label": "Weapons", 
+      "value": "Weapoons"
+    },
+    {
+      "label": "Armor",
+      "value": "Armor"
+    },
+    {
+      "label": "Survival",
+      "value": "Survival"
+    },
+    {
+      "label": "Medical",
+      "value": "Medical"
+    },
+    {
+      "label": "Clothing",
+      "value": "Clothing"
+    },
+    {
+      "label": "Decor",
+      "value": "Decor"
+    },
+    {
+      "label": "Technology",
+      "value": "Technology"
+    },
+    {
+      "label": "Magic",
+      "value": "Magic"
+    },
+    {
+      "label": "Companions",
+      "value": "Companions"
+    },
+    {
+      "label": "Other",
+      "value": "Other"
+    }
+  ]

@@ -18,10 +18,13 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     products: async (parent) => {
-      return Product.find().populate('category').sort({ createdAt: -1 });;
+      return Product.find().sort({ createdAt: -1 });;
     },
     product: async (parent, { _id }) => {
-      return Product.findOne({ _id: _id }).populate('category');
+      return Product.findOne({ _id: _id });
+    },
+    category: async (parent, { _id }) => {
+      return Category.findOne({ _id: _id });
     },
     categories: async () => {
       return await Category.find();
@@ -52,10 +55,9 @@ const resolvers = {
     },
 
     addProduct: async (parent, { productName, price, stock, description, category }) => {
-      console.log(productName, price, stock, description, category);
       return Product.create({ productName, price, stock, description, category });
     },
-    // removeProduct: async (parent, { productId }) => {
+    // removeProduct: async (parent, { _id }) => {
     //   return Product.findOneAndDelete({ _id: product._id });
     // },
     updateProduct: async (parent, { input }, context) => {

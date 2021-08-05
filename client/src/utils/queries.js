@@ -11,46 +11,65 @@ query {
 `;
 
 export const QUERY_PRODUCTS = gql`
-  query products {
-    products {
-      _id
-      productName
-      price
-      stock
-      description
-      category
-      createdAt
-    }
-  }
-`;
-
-export const QUERY_SINGLE_PRODUCT = gql`
-  query getSingleProduct($productId: ID!) {
-    product(productId: $productId) {
-      _id
-      productName
-      price
-      stock
-      description
-      category
-      createdAt
-    }
-  }
-`;
-
-export const QUERY_PRODUCTS_AND_CATEGORIES = gql`
-query productCategories {
+query products {
   products {
     _id
     productName
     price
     stock
     description
-    category
+    category {
+      _id
+    }
     createdAt
   }
-  categories {
-    name
+}
+`;
+
+export const QUERY_SINGLE_PRODUCT = gql`
+  query getSingleProduct($_id: ID!) {
+    product(_id: $_id) {
+      _id
+      productName
+      price
+      stock
+      description
+      category {
+        _id
+      }
+      createdAt
+    }
+  }
+`;
+
+export const QUERY_SINGLE_CATEGORY = gql`
+  query category($_id: ID!) {
+    product(_id: $_id) {
+      _id
+      value
+      label
+    }
+  }
+  `;
+     
+
+
+
+export const QUERY_PRODUCTS_AND_CATEGORIES = gql`
+query productCategories($_id: ID!) {
+  products(_id: $_id) {
+    _id
+    productName
+    price
+    stock
+    description
+    category {
+      _id
+    }
+    createdAt
+  }
+  category {
+    _id
   }
 }
 `;

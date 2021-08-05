@@ -72,7 +72,7 @@ export default function App() {
 					<Route exact path='/signup'>
 						<Signup />
 					</Route>
-					<Route exact path='/:productId'>
+					<Route exact path='/:_id'>
 						<SingleProduct />
 					</Route>
 					<Footer />

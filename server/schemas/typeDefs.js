@@ -33,7 +33,8 @@ type Product {
 
 type Category {
     _id: ID!
-    name: String!
+    label: String!
+    value: String!
 }
 
 input UpdateProductInput {
@@ -42,7 +43,7 @@ input UpdateProductInput {
     price: String
     stock: String
     description: String
-    category: String
+    category: ID
 }
 
 type Query {
@@ -50,14 +51,15 @@ type Query {
     users: [User]
     user(_id: String, username: String): User
     products: [Product]!
-    product(productId: ID!): Product
+    product(_id: ID!): Product
+    category(_id: ID!): Category
     categories: [Category]
 }
 
  type Mutation {
     login (email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addProduct(productName: String!, price: String!, stock: String!, description: String!, category: ID!): Product
+    addProduct(productName: String!, price: String!, stock: String!, description: String!, category: ID): Product
     updateProduct(input: UpdateProductInput!): Product
     removeProduct(_id: ID!): Product
 }

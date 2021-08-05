@@ -1,16 +1,68 @@
-import React, { useState, useQuery } from 'react';
-import { useMutation } from '@apollo/client';
-import { Container, Form, Button, Select } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { useMutation, useQuery } from '@apollo/client';
+import { Container, Form, Button } from 'react-bootstrap';
 import { ADD_PRODUCT } from '../../utils/mutations';
+import { QUERY_PRODUCTS_AND_CATEGORIES } from '../../utils/queries';
 
-const ProductForm = ({ products, categories }) => {
-  console.log({ products, categories });
+
+const ProductForm = () => {
+  const { loading, data } = useQuery(QUERY_PRODUCTS_AND_CATEGORIES);
+  const categories = [
+    {
+      label: 'Melee Weapon',
+      value: 'Melee Weapon',
+    },
+    {
+      label: 'Ranged Weapon',
+      value: 'Ranged Weapon',
+    },
+    {
+      label: 'Food & Lodging',
+      value: 'Food & Lodging',
+    },
+    {
+      label: 'Armor',
+      value: 'Armor',
+    },
+    {
+      label: 'Clothing',
+      value: 'Clothing',
+    },
+    {
+      label: 'Adventure Gear/Tools',
+      value: 'Adventure Gear/Tools',
+    },
+    {
+      label: 'Mounts/Riding Gear',
+      value: 'Mounts/Riding Gear',
+    },
+    {
+      label: 'For Your Animals',
+      value: 'For Your Animals',
+    },
+    {
+      label: 'Barding',
+      value: 'Barding',
+    },
+    {
+      label: 'Special Items',
+      value: 'Special Items',
+    },
+    {
+      label: 'Miscellaneous',
+      value: 'Miscellaneous',
+    },
+  ];
+
   const [formState, setFormState] = useState({
     productName: '',
     price: '',
     stock: '',
     description: '',
+    category: '',
   });
+
+  console.log(formState);
 
 
 
@@ -20,7 +72,8 @@ const ProductForm = ({ products, categories }) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    // super();
+    // this.myRef = React.createRef();
     // On form submit, perform mutation and pass in form data object as arguments
     // It is important that the object fields are match the defined parameters in `ADD_PRODUCT` mutation
     try {
@@ -35,15 +88,20 @@ const ProductForm = ({ products, categories }) => {
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
 
+  // const { loading, data } = useQuery(QUERY_PRODUCTS_AND_CATEGORIES);
+  // const products = data?.products || [];
+  // const categories = data?.categories || [];
+  // console.log(categories);
+  // console.log(products)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormState({
       ...formState,
-      [name]: value,
+      [name]: value
     });
   };
-
   return (
     <Container>
       <Form onSubmit={handleFormSubmit}>
@@ -89,15 +147,18 @@ const ProductForm = ({ products, categories }) => {
           />
         </Form.Group>
         <Form.Group controlId="formBasicSelect">
-        <Form.Label>Category</Form.Label>
-        <Form.Control
-          as="select"
-        >
-          {categories.map((category) => (
-        <option value={category._id}>{category.name}</option>
-      ))}
-        </Form.Control>
-      </Form.Group>
+          <Form.Label>Category</Form.Label>
+          <Form.Control
+            as="select"
+            name='category'
+            value={formState.category}
+            onChange={handleChange}
+          >
+            {categories.map((option) => (
+              <option value={option.value} key={option.value}>{option.label}</option>
+            ))}
+          </Form.Control>
+        </Form.Group>
         <Button
           as='input'
           className='my-3'
